@@ -11,25 +11,16 @@ This displays how to find specific files in the repository:
   
 ## Sprint BackLog
 
-Shows what is being worked on for the project:
+Shows what is being worked on for the project sprints:
 
- - **Make User interface**
-   - Window Panel
-   - Buttons
-   - ~~.jar file~~
-   - ~~Desktop Shortcut~~
-   - ~~Github Setup~~
+ ![Chart that shows Sprint 0 Sprint Backlog](/Tracking/sp0.jpg?raw=true "Sprint 0 - Sprint Backlog")
+ ![Sprint 0 Sprint Backlog](/Tracking/Sprint0_SprintBackLog.png?raw=true "Sprint 0 - Sprint Backlog Chart")
 
 ## Product BackLog
 
-Shows what is still needed to complete the project:
+Shows Project Product Backlog:
 
- * ~~Make User interface~~
- * Build Question structure
- * Finish/Add all questions
- * Assign scores to questions
- * Update GUI
- * Send data to excel sheet for tracking
+ ![Product Backlog](/Tracking/pback0.jpg?raw=true "Product Backlog")
  
 ## Burndown Chart
 
