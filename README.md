@@ -19,6 +19,7 @@ Shows what is being worked on for the project:
    - ~~.jar file~~
    - ~~Desktop Shortcut~~
    - ~~Github Setup~~
+ ![Chart that shows Sprint 0 Sprint Backlog](/Tracking/BurnDownChart2.png?raw=true "Burndown chart")
 
 ## Product BackLog
 
