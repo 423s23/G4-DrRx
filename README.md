@@ -19,5 +19,5 @@ This displays how to find specific files in the repository:
 
   * `/Project` All of the code *(Java, etc.)*
   * `/Tracking` Backlogs and burndown charts *(Along with their history)*
-  * * `Artifacts.md` Displayed artifacts
+  * `Artifacts.md` Displayed artifacts
   
