@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class ZeroFeatRelease extends JFrame {
+public class Questions extends JFrame {
     public static void main() {
         JFrame frame = new JFrame("Frame");
         frame.setLayout(new GridLayout(3, 2));

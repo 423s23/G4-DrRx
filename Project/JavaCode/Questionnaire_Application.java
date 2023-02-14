@@ -53,28 +53,28 @@ public class Questionnaire_Application extends JFrame {
         option2.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                ZeroFeatRelease zfr = new ZeroFeatRelease();
+                Questions zfr = new Questions();
                 zfr.main();
             }
         });
         option3.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                ZeroFeatRelease zfr = new ZeroFeatRelease();
+                Questions zfr = new Questions();
                 zfr.main();
             }
         });
         option4.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                ZeroFeatRelease zfr = new ZeroFeatRelease();
+                Questions zfr = new Questions();
                 zfr.main();
             }
         });
         option5.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                ZeroFeatRelease zfr = new ZeroFeatRelease();
+                Questions zfr = new Questions();
                 zfr.main();
             }
         });
