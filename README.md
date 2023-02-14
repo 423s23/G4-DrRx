@@ -33,7 +33,7 @@ Shows what is still needed to complete the project:
  
 ## Burndown Chart
 
-![Chart that shows hours completed vs projected hours](/Tracking/BurndownChart.png?raw=true "Burndown chart")
+![Chart that shows hours completed vs projected hours](Tracking/DrRx BurnDown Chart.png?raw=true "Burndown chart")
 
 ## Documentation
  
