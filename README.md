@@ -13,14 +13,7 @@ This displays how to find specific files in the repository:
 
 Shows what is being worked on for the project:
 
- - **Make User interface**
-   - Window Panel
-   - Buttons
-   - ~~.jar file~~
-   - ~~Desktop Shortcut~~
-   - ~~Github Setup~~
-   
- ![Chart that shows Sprint 0 Sprint Backlog](Tracking/Sprint0_SprintBackLog.png?raw=true "Sprint 0 - Sprint Backlog")
+ ![Chart that shows Sprint 0 Sprint Backlog](/Tracking/sp0.jpg?raw=true "Sprint 0 - Sprint Backlog")
 
 ## Product BackLog
 
