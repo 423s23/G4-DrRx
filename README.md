@@ -1,6 +1,6 @@
 # ESOF423-Project
 
-This is a repository that holds all of the vital files for a working application. This application will be made with doctors and users both in mind. This app. will hopefully be able to help doctors diagnose patients with a variety of symptoms.
+This is a repository for the 2023 ESOF423 Project working on the problem established by Dr. Bain focusing on helping create a tool for more practical and efficent prognosis of patients by answering series of questions, in the form of a java based executable software.
 
 ## Layout
 
