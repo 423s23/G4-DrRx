@@ -18,14 +18,9 @@ Shows what is being worked on for the project:
 
 ## Product BackLog
 
-Shows what is still needed to complete the project:
+Shows Project Product Backlog:
 
- * ~~Make User interface~~
- * Build Question structure
- * Finish/Add all questions
- * Assign scores to questions
- * Update GUI
- * Send data to excel sheet for tracking
+ ![Product Backlog](/Tracking/pback0.jpg?raw=true "Product Backlog")
  
 ## Burndown Chart
 
