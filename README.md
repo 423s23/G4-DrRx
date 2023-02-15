@@ -3,12 +3,20 @@
 This is a repository for the 2023 ESOF423 Project working on the problem established by Dr. Bain focusing on helping create a tool for more practical and efficent prognosis of patients by answering series of questions, in the form of a java based executable software.
 
 ## Documentation for Users
-*  A	description	of	your	project,	such	as	what	it	does,	what	is	unique	about	it,	and	why	a	user	would	want	to	use	it
-* How	to	obtain	and	install	the	software.	For	hosted	software	such	as	a	website,	the	installation	instructions	may	be	empty.	Your	instructions	need	to	be	both	complete	and	foolproof.	Indicate	all	steps	that	a	user	must	take	to	install	your	system,	on	each	relevant	platform	(e.g.,	a	departmental	Linux	home	VM	or	a	standard	mobile	platform).	Assume	the	user	is	a	CS	undergraduate	who	knows	nothing	about	your	platform	and	toolset.	If	your	project	has	prerequisites	(e.g.,	tools,	libraries,	emulators,	third-party	applications,	etc.),	your	instructions	should	list	all	of	them	and	indicate	how	to	install	and	configure	them.
+Description of the Project
+This is a Zero Feature Release of the DrRx software. It is able to open a window with placeholders for Mental Health Questionnaires and a Patient Information collection placeholder.
 
-*  How	to	run	the	software	(that	is,	how	to	start	it	up).	In	some	cases,	the	instructions	may	need	to	include	information	such	as	how	to	access	data	sources	(e.g.,	how	to	create	and	populate	a	database),	or	other	customization	information. 
-*  How	to	use	the	software.	Assume	that	your	user	is	familiar	with	your	particular platform	(e.g.,	use	of	a	Web	browser,	desktop	applications,	or	a	mobile	phone).	Questions	you	might	answer	include	the	following.	What	is	the	concept	around	which	the	UI	or	user	experience	is	organized	(example:	a	canvas)	and	the	way	in	which	the	user	interacts	or	performs	specific	actions?	Is	the	software	designed	by	analogy	to	some	other	software,	or	to	some	process	in	the	real	world?	Are	there	modes?	What	is	the	workflow?
-*  How	to	report	a	bug.	This	should	include	not	just	the	mechanics	(a	pointer	to	your issue	tracker),	but	also	what	information	is	needed.	You	might	want	to	reference	a	resource	about	how	to	write	a	good	bug	report: Oracle, Mozilla, Ximian, Tatham,Raymond.
+To Obtain and Install the Software
+Within this repository, navigate through to the Project/JavaCode folder. Inside is three files, Questionnaire_Application, Questions, and application; download all three and place them all within the same folder, perferably onto the desktop. The DrRx software is now installed.
+
+To Run the Software
+Find the folder on your desktop where the three files are located. Double click on the application.jar file to open and run the software.
+
+To Use the Software
+With the DrRx software running, a fullscreen window will appear. The current buttons include: Personal Info, Quiz 1, Quiz 2, Quiz 3 and Quiz 4. Click on a button to open another window. To use the quiz window in this release, open a quiz by clicking the corresponding button, select one option for an answer. The 'Next' button is currently inactive. To return to the main questionnaire window, close the current window in the upper right corner.
+
+To Report a Bug
+In the case a bug should occur, take a screenshot of the bug you see in the application window and write a brief summary of the events leading up to when this bug occured. This information can be sent to aurora.duskin@ecat1.montana.edu.
 
 ## Documentation for Developers
 * how to obtain the source code, including at a minimum: How to obtain the source code for the latest stable/released version. Where to find the source code repository that you will use for development.
