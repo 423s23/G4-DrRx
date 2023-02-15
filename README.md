@@ -3,19 +3,19 @@
 This is a repository for the 2023 ESOF423 Project working on the problem established by Dr. Bain focusing on helping create a tool for more practical and efficent prognosis of patients by answering series of questions, in the form of a java based executable software.
 
 ## Documentation for Users
-Description of the Project
+### Description of the Project
 This is a Zero Feature Release of the DrRx software. It is able to open a window with placeholders for Mental Health Questionnaires and a Patient Information collection placeholder.
 
-To Obtain and Install the Software
+### To Obtain and Install the Software
 Within this repository, navigate through to the Project/JavaCode folder. Inside is three files, Questionnaire_Application, Questions, and application; download all three and place them all within the same folder, perferably onto the desktop. The DrRx software is now installed.
 
-To Run the Software
+### To Run the Software
 Find the folder on your desktop where the three files are located. Double click on the application.jar file to open and run the software.
 
-To Use the Software
+### To Use the Software
 With the DrRx software running, a fullscreen window will appear. The current buttons include: Personal Info, Quiz 1, Quiz 2, Quiz 3 and Quiz 4. Click on a button to open another window. To use the quiz window in this release, open a quiz by clicking the corresponding button, select one option for an answer. The 'Next' button is currently inactive. To return to the main questionnaire window, close the current window in the upper right corner.
 
-To Report a Bug
+### To Report a Bug
 In the case a bug should occur, take a screenshot of the bug you see in the application window and write a brief summary of the events leading up to when this bug occured. This information can be sent to aurora.duskin@ecat1.montana.edu.
 
 ## Documentation for Developers
