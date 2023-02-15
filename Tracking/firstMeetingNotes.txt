@@ -1,0 +1,16 @@
+Assumptions:
+	Ask the user abouth these questions.?? Dont!!! The doctor knows if they follow these assumptions.
+	~maybe disclamer: pin in it 
+
+Keep track of the questions as well as the total points
+
+ONLY FOR DOCTORS!!!!
+
+Make a flowchart (BIG) will look at next meeting
+	25 yr male (called for being depressed)
+		-no epic
+
+all computers, need to make a server.
+
+
+	
