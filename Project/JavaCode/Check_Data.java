@@ -9,6 +9,7 @@ public class Check_Data {
             Scanner myReader = new Scanner(myObj);
             // Skip first line, getting Questionnaire data only
             String data = myReader.nextLine();
+
             while (myReader.hasNextLine()){
                 int total = 0;
                 String answers = "";
