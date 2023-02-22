@@ -1,7 +1,1 @@
-3_29_2019,Joe,Smith,self
-PHQ-9,2,1,1,2,3,1,0,0,1
-GAD-7,0,0,3,1,0,2,1
-ISI,4,3,3,2,1,1,2
-ASRS,never,rarely,sometimes,often,very often,rarely
-CSS,no,no,no,no,no,no,no
-
+Joe,Smith,3_29_2019,PHQ-9,2,1,1,2,3,1,0,0,1,GAD-7,0,0,3,1,0,2,1,ISI,4,3,3,2,1,1,2,ASRS,never,rarely,sometimes,often,very often,rarely,CSS,no,no,no,no,no,no,no
