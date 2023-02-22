@@ -1,14 +1,16 @@
 
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ButtonGroup;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /* Steps For Export to runnable .jar file:
@@ -35,64 +37,19 @@ public class Questionnaire_Application extends JFrame {
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
         
         //jlabel.setForeground(Color.RED); Text Color Option
-
-        ButtonGroup buttonGroup = new ButtonGroup();
         
-        JButton option1 = new JButton("Personal Info");
-        JButton option2 = new JButton("Quiz 1");
-        JButton option3 = new JButton("Quiz 2");
-        JButton option4 = new JButton("Quiz 3");
-        JButton option5 = new JButton("Quiz 4");
+        JButton option1 = new JButton("Patient Search Bar");
         
         //------------------------------------------------//
         
         option1.addActionListener(new ActionListener(){
             @Override
-          public void actionPerformed(ActionEvent evt){personal_info();}
-           });
-        option2.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt){
-                Questions zfr = new Questions();
-                zfr.main();
-            }
-        });
-        option3.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt){
-                Questions zfr = new Questions();
-                zfr.main();
-            }
-        });
-        option4.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt){
-                Questions zfr = new Questions();
-                zfr.main();
-            }
-        });
-        option5.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent evt){
-                Questions zfr = new Questions();
-                zfr.main();
-            }
-        });
-
+            public void actionPerformed(ActionEvent evt){search_bar();}
+            });
 
         //------------------------------------------------//
-        
-        buttonGroup.add(option1); //adds buttons to a button group for macro manipulation
-        buttonGroup.add(option2);
-        buttonGroup.add(option3);
-        buttonGroup.add(option4);
-        buttonGroup.add(option5);
 
         button_panel.add(option1); //adds button to panel
-        button_panel.add(option2);
-        button_panel.add(option3);
-        button_panel.add(option4);
-        button_panel.add(option5);
 
         text_panel.add(jlabel); //adds text block to text displaying panel
 
@@ -105,15 +62,40 @@ public class Questionnaire_Application extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-    private void personal_info() { //write down personal info of patient
-    	JFrame f = new JFrame("Personal Info");
-    	JPanel text = new JPanel(new GridLayout(2,0));
-    	JLabel jlabel = new JLabel("Enter Personal Info Below:",SwingConstants.CENTER);
+    private void search_bar() { //write down personal info of patient
+    	JFrame f = new JFrame("Patient Lookup");
+    	JPanel panel = new JPanel();
+    	panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    	
+    	JPanel wrapper = new JPanel( new FlowLayout(0, 0, FlowLayout.LEADING) );
+    	
+    	JTextField search_bar = new JTextField(30);
+    	JLabel jlabel = new JLabel("Enter Patient Name Below For Results:",SwingConstants.CENTER);
+    	JButton search_button = new JButton("Search");
+    	
     	jlabel.setFont(new Font("Verdana", Font.BOLD,26));
+    	search_bar.setFont(new Font("Verdana", Font.BOLD,26));
     	
-    	text.add(jlabel); //adds text block to text displaying panel
+    	search_bar.setHorizontalAlignment(JTextField.CENTER);
     	
-    	f.add(text); //adds the text displaying panel to the frame
+    	search_button.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+            	String patient_name = search_bar.getText();
+            	//System.out.print(patient_name);
+            	//search the file here for the name
+            	//after finding it you should probably open a new panel for displaying the data
+            }
+            
+    	});
+    	
+    	wrapper.add(search_bar);
+    	wrapper.add(search_button);
+    	
+    	panel.add(jlabel); //adds text block to text displaying panel
+    	panel.add(wrapper);
+    	
+    	f.add(panel); //adds the text displaying panel to the frame
     	
     	f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         f.setVisible(true);
