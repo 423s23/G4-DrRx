@@ -34,7 +34,7 @@ public class Questionnaire_Application extends JFrame {
 
         //------------------------------------------------//
         
-        JLabel jlabel = new JLabel("Doctor Assisting Questionnaire",SwingConstants.CENTER);
+        JLabel jlabel = new JLabel("Doctor Assisting Application",SwingConstants.CENTER);
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
         
         //jlabel.setForeground(Color.RED); Text Color Option
