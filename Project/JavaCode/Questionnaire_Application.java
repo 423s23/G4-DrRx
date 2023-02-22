@@ -4,7 +4,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Scanner;
+import java.io.*;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -82,8 +83,22 @@ public class Questionnaire_Application extends JFrame {
             @Override
             public void actionPerformed(ActionEvent evt){
             	String patient_name = search_bar.getText();
-            	//System.out.print(patient_name);
-            	//search the file here for the name
+                try {
+                    String line;
+                    Scanner sc = new Scanner(new File("Project\\testData\\dummy_csv.csv"));
+                    sc.useDelimiter(",");   //sets the delimiter pattern
+                    while (sc.hasNext())  //returns a boolean value
+                    {
+                        line = sc.nextLine();
+                        if (line.contains(patient_name)) {
+                            System.out.println(line);
+                            break;
+                        }
+                    }
+                    sc.close();
+                } catch (FileNotFoundException e) {
+                    // ignore
+                }
             	//after finding it you should probably open a new panel for displaying the data
             }
             
@@ -103,7 +118,7 @@ public class Questionnaire_Application extends JFrame {
     
     @SuppressWarnings("unused")
     public static void main(String[] args) {
-		Questionnaire_Application qa = new Questionnaire_Application();
+        Questionnaire_Application qa = new Questionnaire_Application();
     }
     
 }
