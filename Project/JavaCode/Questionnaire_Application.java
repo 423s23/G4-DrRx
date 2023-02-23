@@ -70,7 +70,15 @@ public class Questionnaire_Application extends JFrame {
     	search_bar.setFont(new Font("Verdana", Font.BOLD,26));
     	
     	search_bar.setHorizontalAlignment(JTextField.CENTER);
-    	
+
+        JLabel jlabel2 = new JLabel("",SwingConstants.CENTER);
+        jlabel2.setFont(new Font("Verdana", Font.BOLD,20));
+        JLabel jlabel3 = new JLabel("",SwingConstants.CENTER);
+        jlabel3.setFont(new Font("Verdana", Font.BOLD,20));
+        JLabel jlabel4 = new JLabel("",SwingConstants.CENTER);
+        jlabel4.setFont(new Font("Verdana", Font.BOLD,20));
+        JLabel jlabel5 = new JLabel("",SwingConstants.CENTER);
+        jlabel5.setFont(new Font("Verdana", Font.BOLD,20));
     	search_button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
@@ -85,7 +93,11 @@ public class Questionnaire_Application extends JFrame {
                         if (line.contains(patient_name)) {
                             //System.out.println(line);
                             Check_Data data = new Check_Data();
-                            data.main(line);
+                            String[] result = data.main(line);
+                            jlabel2.setText(result[0].toString());
+                            jlabel3.setText(result[1].toString());
+                            jlabel4.setText(result[2].toString());
+                            jlabel5.setText(result[3].toString());
                             break;
                         }
                     }
@@ -101,8 +113,13 @@ public class Questionnaire_Application extends JFrame {
     	wrapper.add(search_bar);
     	wrapper.add(search_button);
     	
-    	panel.add(jlabel); //adds text block to text displaying panel
+    	panel.add(jlabel);//adds text block to text displaying panel
     	panel.add(wrapper);
+        // labels for patient recommendation
+        panel.add(jlabel2);
+        panel.add(jlabel3);
+        panel.add(jlabel4);
+        panel.add(jlabel5);
     	
     	f.add(panel); //adds the text displaying panel to the frame
     	

@@ -1,20 +1,21 @@
 public class Check_Data {
 
     // Method to Determine Condition and Recommendation
-    public static void Suggested(int PHQ, int GAD){
+    public static String Suggested(int PHQ, int GAD){
         if ((PHQ<10)&&(GAD>9)){
-            System.out.println("Primarily Anxiety: Begin Sertraline starting dose 50mg and reassess in after 4 weeks\n");
+            return ("Primarily Anxiety: Begin Sertraline starting dose 50mg and reassess in after 4 weeks\n");
         }
         else if ((GAD>9)&&(PHQ>9)){
-            System.out.println("Mixed Anxiety and Depression: Begin fluoxetine starting dose 10 mg QD and reassess in 4 weeks\n");
+            return("Mixed Anxiety and Depression: Begin Fluoxetine starting dose 10 mg QD and reassess in 4 weeks\n");
         }
         else if ((GAD<10)&&(PHQ>9)){
-            System.out.println("Primarily Depression: Begin Buproprion XL 150mg QD and reassess in 4 weeks\n");
+            return("Primarily Depression: Begin Buproprion XL 150mg QD and reassess in 4 weeks\n");
         }
+        return("Data Not Found");
     }
     // Currently reads the full file 'sampleinput.csv'
     // Can change to take in a string from the patient search
-    public static void main(String line){
+    public static String[] main(String line){
 //            File myObj = new File("Project/testData/sampleinput.csv");
 //            Scanner myReader = new Scanner(myObj);
 //
@@ -38,10 +39,14 @@ public class Check_Data {
                         for (int i = 14; i < 14+7; i++) GAD_total += Integer.parseInt(testArray[i]);
                     }
                     // End of Current Testing
-                    System.out.println("Patient: " + first + " " + last);
-                    System.out.println("PHQ-9 Results: " + PHQ_total);
-                    System.out.println("GAD-7 Results: " + GAD_total);
-                    Suggested(PHQ_total,GAD_total);
+                    String result[] = new String[4];
+                    result[0] = ("Patient: " + first + " " + last);
+                    result[1] = ("PHQ-9 Results: " + PHQ_total);
+                    result[2] = ("GAD-7 Results: " + GAD_total);
+                    result[3] = Suggested(PHQ_total,GAD_total);
+                    return(result);
                 }
+
+        return new String[0];
     }
 }
