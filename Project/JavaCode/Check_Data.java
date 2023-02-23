@@ -1,7 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class Check_Data {
 
     // Method to Determine Condition and Recommendation
@@ -18,19 +14,18 @@ public class Check_Data {
     }
     // Currently reads the full file 'sampleinput.csv'
     // Can change to take in a string from the patient search
-    public static void main(String[] args){
-        try {
-            File myObj = new File("Project/testData/sampleinput.csv");
-            Scanner myReader = new Scanner(myObj);
-
-            // while file has next line
-            while (myReader.hasNextLine()){
-                String data = myReader.nextLine();
+    public static void main(String line){
+//            File myObj = new File("Project/testData/sampleinput.csv");
+//            Scanner myReader = new Scanner(myObj);
+//
+//            // while file has next line
+//            while (myReader.hasNextLine()){
+//                String data = myReader.nextLine();
 
                 // while line isn't null
-                if (data != ""){
+                if (line != ""){
                     int PHQ_total = 0, GAD_total = 0;
-                    String[] testArray = data.split(",");
+                    String[] testArray = line.split(",");
                     String first = testArray[0];
                     String last = testArray[1];
                     String DOB = testArray[2];
@@ -48,12 +43,5 @@ public class Check_Data {
                     System.out.println("GAD-7 Results: " + GAD_total);
                     Suggested(PHQ_total,GAD_total);
                 }
-
-            }
-            myReader.close();
-        } catch (FileNotFoundException e){
-            System.out.println("File Not Found");
-            e.printStackTrace();
-        }
     }
 }

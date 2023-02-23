@@ -1,18 +1,10 @@
-
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.io.*;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 /* Steps For Export to runnable .jar file:
  * File->Export->Java->Runnable JAR file
@@ -85,13 +77,15 @@ public class Questionnaire_Application extends JFrame {
             	String patient_name = search_bar.getText();
                 try {
                     String line;
-                    Scanner sc = new Scanner(new File("Project\\testData\\dummy_csv.csv"));
+                    Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
                     sc.useDelimiter(",");   //sets the delimiter pattern
                     while (sc.hasNext())  //returns a boolean value
                     {
                         line = sc.nextLine();
                         if (line.contains(patient_name)) {
-                            System.out.println(line);
+                            //System.out.println(line);
+                            Check_Data data = new Check_Data();
+                            data.main(line);
                             break;
                         }
                     }
