@@ -16,7 +16,6 @@ public class Check_Data {
             System.out.println("Primarily Depression: Begin Buproprion XL 150mg QD and reassess in 4 weeks\n");
         }
     }
-
     // Currently reads the full file 'sampleinput.csv'
     // Can change to take in a string from the patient search
     public static void main(String[] args){
