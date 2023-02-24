@@ -19,7 +19,7 @@ With the DrRx software running, a fullscreen window will appear. The current but
 In the case a bug should occur, take a screenshot of the bug you see in the application window and write a brief summary of the events leading up to when this bug occured. This information can be sent to aurora.duskin@ecat1.montana.edu.
 
 ## Documentation for Developers
-* Source code for the latest version of the software can be obtained by downloading the Project/JavaCode folder in its entirety.
+* Source code for the latest version of the software can be obtained by downloading the Project folder in its entirety.
 * All source code and .jar files can be found under the Project/JavaCode directory. Documentation, artifacts and version history can be found under the Tracking directory.
 * No extra build instructions are currently associated with this software, but may be included at a later date.
 * Currently, no test suite is available for this software. Testing must be done manually by running the source code.
