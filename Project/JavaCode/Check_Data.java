@@ -19,7 +19,7 @@ public class Check_Data {
 
                 // while line isn't null
                 if (line != ""){
-                    int PHQ_total = 0, GAD_total = 0;
+                    int PHQ_total = 0, GAD_total = 0, ISI_total = 0, ASRS_total = 0;
                     String[] testArray = line.split(",");
                     String first = testArray[0];
                     String last = testArray[1];
@@ -42,14 +42,19 @@ public class Check_Data {
                         }
                     }
 
+                    if (testArray[29].equals("ASRS")){
+                        for (int i = 30; i < 30+6; i++) ASRS_total += Integer.parseInt(testArray[i]);
+                    }
+
                     // End of Current Testing
                     // This string array will have to be modified to include more tests
                     // Suggested method will have to be modified to take all data, and return right recommendation
-                    String result[] = new String[4];
+                    String result[] = new String[5];
                     result[0] = ("Patient: " + first + " " + last);
                     result[1] = ("PHQ-9 Results: " + PHQ_total);
                     result[2] = ("GAD-7 Results: " + GAD_total);
                     result[3] = Suggested(PHQ_total,GAD_total);
+                    result[4] = ("ASRS Results: " + ASRS_total);
                     return(result);
                 }
 
