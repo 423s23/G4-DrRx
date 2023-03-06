@@ -51,13 +51,7 @@ public class Check_Data {
 
             // ISI TEST
             if (testArray[21].equals("ISI")){
-                ISI_total += Integer.parseInt(testArray[22]);
-                ISI_total += Integer.parseInt(testArray[23]);
-                ISI_total += Integer.parseInt(testArray[24]);
-                ISI_total += Integer.parseInt(testArray[25]);
-                ISI_total += Integer.parseInt(testArray[26]);
-                ISI_total += Integer.parseInt(testArray[27]);
-                ISI_total += Integer.parseInt(testArray[28]);
+                for (int i = 22; i < 22+7; i++) ISI_total += Integer.parseInt(testArray[i]);
             }
 
             // If PHQ Question 9 is anything but 0, take CSS
