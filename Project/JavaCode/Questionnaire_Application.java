@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /* Steps For Export to runnable .jar file:
@@ -76,26 +77,14 @@ public class Questionnaire_Application extends JFrame {
 
         search_bar.setHorizontalAlignment(JTextField.CENTER);
 
-        JLabel jlabel2 = new JLabel("",SwingConstants.CENTER);
-        jlabel2.setFont(new Font("Verdana", Font.BOLD,20));
+        int labelAmt = 8; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
+        ArrayList<JLabel> labels = new ArrayList<>();
+        for (int i = 0; i < labelAmt; i++) {
+            JLabel label = new JLabel("",SwingConstants.CENTER);
+            label.setFont(new Font("Verdana", Font.BOLD,20));
+            labels.add(label);
+        }
 
-        JLabel jlabel3 = new JLabel("",SwingConstants.CENTER);
-        jlabel3.setFont(new Font("Verdana", Font.BOLD,20));
-
-        JLabel jlabel4 = new JLabel("",SwingConstants.CENTER);
-        jlabel4.setFont(new Font("Verdana", Font.BOLD,20));
-
-        JLabel jlabel5 = new JLabel("",SwingConstants.CENTER);
-        jlabel5.setFont(new Font("Verdana", Font.BOLD,20));
-
-        JLabel jlabel6 = new JLabel("",SwingConstants.CENTER);
-        jlabel6.setFont(new Font("Verdana", Font.BOLD,20));
-
-        JLabel jlabel7 = new JLabel("",SwingConstants.CENTER);
-        jlabel7.setFont(new Font("Verdana", Font.BOLD,20));
-
-        JLabel jlabel8 = new JLabel("",SwingConstants.CENTER);
-        jlabel8.setFont(new Font("Verdana", Font.BOLD,20));
         search_button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
@@ -112,13 +101,12 @@ public class Questionnaire_Application extends JFrame {
                             Check_Data data = new Check_Data();
                             String[] result = data.main(line);
 
-                            jlabel2.setText(result[0].toString()); //assign text to label
-                            jlabel3.setText(result[1].toString());
-                            jlabel4.setText(result[2].toString());
-                            jlabel5.setText(result[3].toString());
-                            jlabel6.setText(result[4].toString());
-                            jlabel7.setText(result[5].toString());
-                            jlabel8.setText(result[6].toString());
+                            int iterval = 0;
+
+                            for (JLabel label : labels) {
+                                label.setText(result[iterval]);
+                                iterval++;
+                            }
 
                             break;
                         }
@@ -139,13 +127,9 @@ public class Questionnaire_Application extends JFrame {
         panel.add(wrapper);
 
         // labels for patient recommendation, have to be added to be able to display
-        panel.add(jlabel2);
-        panel.add(jlabel3);
-        panel.add(jlabel4);
-        panel.add(jlabel5);
-        panel.add(jlabel6); // Recommendation label
-        panel.add(jlabel7);
-        panel.add(jlabel8);
+        for (JLabel label : labels) {
+            panel.add(label);
+        }
 
         f.add(panel); //adds the text displaying panel to the frame
 

@@ -36,6 +36,7 @@ public class Check_Data {
         // while line isn't null
         if (line != ""){
             int PHQ_total = 0, GAD_total = 0, ISI_total = 0, ASRS_total = 0;
+            String ASRS_recommendation = "";
             String[] testArray = line.split(",");
             String first = testArray[0];
             String last = testArray[1];
@@ -66,19 +67,25 @@ public class Check_Data {
 
             if (testArray[29].equals("ASRS")){
                 for (int i = 30; i < 30+6; i++) ASRS_total += Integer.parseInt(testArray[i]);
+                if(ASRS_total >= 14){
+                    ASRS_recommendation = "Patient is likely to have ADHD";
+                }else{
+                    ASRS_recommendation = "Patient is not likely to have ADHD";
+                }
             }
 
             // End of Current Testing
             // This string array will have to be modified to include more tests
             // Suggested method will have to be modified to take all data, and return right recommendation
-            String result[] = new String[7];
+            String result[] = new String[8];
             result[0] = ("Patient: " + first + " " + last);
             result[1] = ("PHQ-9 Results: " + PHQ_total);
             result[2] = ("GAD-7 Results: " + GAD_total);
             result[3] = ("ISI Results: "   + ISI_total);
-            result[4] = ("ASRS Results: "  + ASRS_total);
-            result[5] = Suggested(PHQ_total,GAD_total);
-            result[6] = Suggested_ISI(ISI_total);
+            result[4] = ("ASRS Total: "  + ASRS_total);
+            result[5] = ("ASRS Result: " + ASRS_recommendation);
+            result[6] = Suggested(PHQ_total,GAD_total);
+            result[7] = Suggested_ISI(ISI_total);
             //System.out.println(result[0].toString()+"\n"+result[1]+"\n"+result[2]+"\n"+result[3]+"\n"+result[4]+"\n"+result[5]+"\n"+result[6]);
             return(result);
         }
