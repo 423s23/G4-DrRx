@@ -56,8 +56,8 @@ public class Check_Data {
             }
 
             //CSS Reccomendation------------
-            String CSS_Reccomendation = "Get immediate help: Call or text 988, call 911 " +
-                    "or go to the emergency room. STAY WITH THEM until they can be evaluated.";
+            String CSS_Reccomendation = "<html>Get immediate help: Call or text 988, call 911 " +
+                    "or go to the emergency room.<br>STAY WITH THEM until they can be evaluated.</html>";
             int CSS_total = 0;
             boolean CSS_Trouble = false;
 
@@ -65,7 +65,7 @@ public class Check_Data {
             if (!(testArray[12].equals("0"))){
                 for(int i = 37; i < 44; i++) CSS_total += Integer.parseInt(testArray[i]);
 
-                if (!(testArray[40].equals("0"))&&(testArray[41].equals("0"))&&(testArray[43].equals("0"))) {
+                if (!(testArray[40].equals("0")) || !(testArray[41].equals("0")) || !(testArray[43].equals("0"))) {
                     CSS_Trouble = true;
                 }
             }
