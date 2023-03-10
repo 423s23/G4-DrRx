@@ -67,6 +67,7 @@ public class Questionnaire_Application extends JFrame {
         panel.setLayout(new GridLayout(10, 5));
 
         JPanel wrapper = new JPanel( new FlowLayout(0, 0, FlowLayout.LEADING) );
+        wrapper.setLayout(new GridLayout(2, 1));
 
         JTextField search_bar = new JTextField(30);
         JLabel jlabel = new JLabel("Enter Patient Name Below For Results:",SwingConstants.CENTER);
