@@ -2,8 +2,7 @@
 
 Shows what is being worked on for the project sprints:
 
- ![Chart that shows Sprint 0 Sprint Backlog](/Tracking/sp0.jpg?raw=true "Sprint 0 - Sprint Backlog")
- ![Sprint 0 Sprint Backlog](/Tracking/Sprint0_SprintBackLog.png?raw=true "Sprint 0 - Sprint Backlog Chart")
+ ![Chart that shows Sprint 0 Sprint Backlog](/Tracking/Sprint2Backlog.png?raw=true "Sprint 0 - Sprint Backlog")
 
 ## Product BackLog
 
@@ -13,5 +12,5 @@ Shows Project Product Backlog:
  
 ## Burndown Chart
 
-![Chart that shows hours completed vs projected hours](/Tracking/BurnDownChart2.png?raw=true "Burndown chart")
+![Chart that shows hours completed vs projected hours](/Tracking/Sprint2Burndown.png?raw=true "Burndown chart")
 
