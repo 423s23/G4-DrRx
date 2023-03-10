@@ -56,8 +56,8 @@ public class Check_Data {
             }
 
             //CSS Reccomendation------------
-            String CSS_Reccomendation = "Get immediate help: Call or text 988, call 911 " +
-                    "or go to the emergency room. STAY WITH THEM until they can be evaluated.";
+            String CSS_Reccomendation = "<html>Get immediate help: Call or text 988, call 911 " +
+                    "or go to the emergency room.<br>STAY WITH THEM until they can be evaluated.</html>";
             int CSS_total = 0;
             boolean CSS_Trouble = false;
 
