@@ -65,7 +65,7 @@ public class Check_Data {
             if (!(testArray[12].equals("0"))){
                 for(int i = 37; i < 44; i++) CSS_total += Integer.parseInt(testArray[i]);
 
-                if (!(testArray[40].equals("0"))&&(testArray[41].equals("0"))&&(testArray[43].equals("0"))) {
+                if (!(testArray[40].equals("0")) || !(testArray[41].equals("0")) || !(testArray[43].equals("0"))) {
                     CSS_Trouble = true;
                 }
             }

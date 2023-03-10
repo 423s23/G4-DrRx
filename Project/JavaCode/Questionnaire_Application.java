@@ -106,7 +106,7 @@ public class Questionnaire_Application extends JFrame {
 
                             for (JLabel label : labels) {
                                 label.setText(result[iterval]);
-                                if(result[iterval].contains("get"))
+                                if(result[iterval].contains("Get immediate help"))
                                 {
                                     label.setForeground(Color.RED);
                                 }
