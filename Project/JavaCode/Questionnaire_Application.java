@@ -64,7 +64,7 @@ public class Questionnaire_Application extends JFrame {
         JFrame f = new JFrame("Patient Lookup");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new GridLayout(10, 5));
 
         JPanel wrapper = new JPanel( new FlowLayout(0, 0, FlowLayout.LEADING) );
 
