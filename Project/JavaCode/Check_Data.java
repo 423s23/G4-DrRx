@@ -55,13 +55,18 @@ public class Check_Data {
                 for (int i = 22; i < 22+7; i++) ISI_total += Integer.parseInt(testArray[i]);
             }
 
+            //CSS Reccomendation------------
+            String CSS_Reccomendation = "Get immediate help: Call or text 988, call 911 " +
+                    "or go to the emergency room. STAY WITH THEM until they can be evaluated.";
+            int CSS_total = 0;
+            boolean CSS_Trouble = false;
+
             // If PHQ Question 9 is anything but 0, take CSS
             if (!(testArray[12].equals("0"))){
-                // IF CSS 4,5,6 is positive, Crisis intervention indicated
-                // If no to 1,2,6 on CSS, move to other testing
-                if (!(testArray[37].equals("0"))&&(testArray[38].equals("0"))&&(testArray[43].equals("0"))) {
-                    //REFER CSS SCREENING HERE. THREAT DETECTED
-                    //Maybe open new window to make sure the CSS positive is seen
+                for(int i = 37; i < 44; i++) CSS_total += Integer.parseInt(testArray[i]);
+
+                if (!(testArray[40].equals("0"))&&(testArray[41].equals("0"))&&(testArray[43].equals("0"))) {
+                    CSS_Trouble = true;
                 }
             }
 
@@ -77,7 +82,7 @@ public class Check_Data {
             // End of Current Testing
             // This string array will have to be modified to include more tests
             // Suggested method will have to be modified to take all data, and return right recommendation
-            String result[] = new String[8];
+            String result[] = new String[9];
             result[0] = ("Patient: " + first + " " + last);
             result[1] = ("PHQ-9 Results: " + PHQ_total);
             result[2] = ("GAD-7 Results: " + GAD_total);
@@ -86,6 +91,14 @@ public class Check_Data {
             result[5] = ("ASRS Result: " + ASRS_recommendation);
             result[6] = Suggested(PHQ_total,GAD_total);
             result[7] = Suggested_ISI(ISI_total);
+            if(CSS_Trouble)
+            {
+                result[8] = CSS_Reccomendation;
+            }
+            else
+            {
+                result[8] = ("CSS Total: " + CSS_total);
+            }
             //System.out.println(result[0].toString()+"\n"+result[1]+"\n"+result[2]+"\n"+result[3]+"\n"+result[4]+"\n"+result[5]+"\n"+result[6]);
             return(result);
         }

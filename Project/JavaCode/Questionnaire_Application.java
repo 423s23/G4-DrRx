@@ -77,7 +77,7 @@ public class Questionnaire_Application extends JFrame {
 
         search_bar.setHorizontalAlignment(JTextField.CENTER);
 
-        int labelAmt = 8; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
+        int labelAmt = 9; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
         ArrayList<JLabel> labels = new ArrayList<>();
         for (int i = 0; i < labelAmt; i++) {
             JLabel label = new JLabel("",SwingConstants.CENTER);
@@ -105,6 +105,10 @@ public class Questionnaire_Application extends JFrame {
 
                             for (JLabel label : labels) {
                                 label.setText(result[iterval]);
+                                if(result[iterval].contains("get"))
+                                {
+                                    label.setForeground(Color.RED);
+                                }
                                 iterval++;
                             }
 
