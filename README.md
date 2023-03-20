@@ -16,7 +16,7 @@ Find the folder on your desktop where the three files are located. Double click 
 With the DrRx software running, a fullscreen window will appear. The current buttons include: Personal Info, Quiz 1, Quiz 2, Quiz 3 and Quiz 4. Click on a button to open another window. To use the quiz window in this release, open a quiz by clicking the corresponding button, select one option for an answer. The 'Next' button is currently inactive. To return to the main questionnaire window, close the current window in the upper right corner.
 
 ### To Report a Bug
-In the case a bug should occur, take a screenshot of the bug you see in the application window and write a brief summary of the events leading up to when this bug occured. This information can be sent to aurora.duskin@ecat1.montana.edu.
+EDIT THIS: probably using the issues tab in github
 
 ## Documentation for Developers
 * Source code for the latest version of the software can be obtained by downloading the Project folder in its entirety.
