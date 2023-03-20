@@ -3,29 +3,29 @@ public class Check_Data {
     // Method to Determine Condition and Recommendation
     public static String Suggested(int PHQ, int GAD){
         if ((PHQ<10)&&(GAD>9)){
-            return ("Primarily Anxiety: Begin Sertraline starting dose 50mg and reassess in after 4 weeks\n");
+            return ("<html> Primarily Anxiety: Begin Sertraline starting dose 50mg. Reassess after 4 weeks</html>");
         }
         else if ((GAD>9)&&(PHQ>9)){
-            return("Mixed Anxiety and Depression: Begin Fluoxetine starting dose 10 mg QD and reassess in 4 weeks\n");
+            return("<html> Mixed Anxiety/Depression: Begin Fluoxetine starting dose 10 mg QD. Reassess after 4 weeks</html>");
         }
         else if ((GAD<10)&&(PHQ>9)){
-            return("Primarily Depression: Begin Buproprion XL 150mg QD and reassess in 4 weeks\n");
+            return("<html> Primarily Depression: Begin Buproprion XL 150mg QD. Reassess after 4 weeks</html>");
         }
         return("Data Not Found");
     }
 
     public static String Suggested_ISI(int ISI){
         if(ISI<=7){
-            return ("Insomnia Result: No clinically significant insomnia\n");
+            return ("<html>Insomnia Result: No clinically significant insomnia<html>");
         }
         else if((8<=ISI)&&(ISI<=14)){
-            return ("Insomnia Result: Subthreshold insomnia\n");
+            return ("<html>Insomnia Result: Subthreshold insomnia<html>");
         }
         else if((15<=ISI)&&(ISI<=21)){
-            return ("Insomnia Result: Clinical insomnia (moderate severity)\n");
+            return ("<html>Insomnia Result: Clinical insomnia (moderate severity)<html>");
         }
         else if((21<=ISI)&&(ISI<=28)){
-            return ("Insomnia Result: Clinical insomnia (severe)\n");
+            return ("<html>Insomnia Result: Clinical insomnia (severe)<html>");
         }
         return("Data Not Found");
     }
@@ -57,7 +57,7 @@ public class Check_Data {
 
             //CSS Reccomendation------------
             String CSS_Reccomendation = "<html>Get immediate help: Call or text 988, call 911 " +
-                    "or go to the emergency room.<br>STAY WITH THEM until they can be evaluated.</html>";
+                    "or go to the emergency room. STAY WITH THEM until they can be evaluated.</html>";
             int CSS_total = 0;
             boolean CSS_Trouble = false;
 

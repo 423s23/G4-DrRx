@@ -13,7 +13,6 @@ import java.util.Scanner;
  * Set destination of file on your computer
  * Select Package libraries (Make sure to delete previous .jar file)*/
 
-@SuppressWarnings("serial")
 public class Questionnaire_Application extends JFrame {
 
 
@@ -70,7 +69,7 @@ public class Questionnaire_Application extends JFrame {
         wrapper.setLayout(new GridLayout(2, 1));
 
         JTextField search_bar = new JTextField(30);
-        JLabel jlabel = new JLabel("Enter Patient Name Below For Results:",SwingConstants.CENTER);
+        JLabel jlabel = new JLabel("Enter Patient Name For Results:",SwingConstants.CENTER);
         JButton search_button = new JButton("Search");
 
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
@@ -109,6 +108,8 @@ public class Questionnaire_Application extends JFrame {
                                 if(result[iterval].contains("Get immediate help"))
                                 {
                                     label.setForeground(Color.RED);
+                                } else {
+                                    label.setForeground(Color.BLACK);
                                 }
                                 iterval++;
                             }
