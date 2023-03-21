@@ -3,29 +3,29 @@ public class Check_Data {
     // Method to Determine Condition and Recommendation
     public static String Suggested(int PHQ, int GAD){
         if ((PHQ<10)&&(GAD>9)){
-            return ("<html> Primarily Anxiety: Begin Sertraline starting dose 50mg. Reassess after 4 weeks</html>");
+            return ("Primarily Anxiety. Begin Sertraline starting dose 50mg. Reassess after 4 weeks");
         }
         else if ((GAD>9)&&(PHQ>9)){
-            return("<html> Mixed Anxiety/Depression: Begin Fluoxetine starting dose 10 mg QD. Reassess after 4 weeks</html>");
+            return("Mixed Anxiety/Depression. Begin Fluoxetine starting dose 10 mg QD. Reassess after 4 weeks");
         }
         else if ((GAD<10)&&(PHQ>9)){
-            return("<html> Primarily Depression: Begin Buproprion XL 150mg QD. Reassess after 4 weeks</html>");
+            return("Primarily Depression. Begin Buproprion XL 150mg QD. Reassess after 4 weeks");
         }
         return("Data Not Found");
     }
 
     public static String Suggested_ISI(int ISI){
         if(ISI<=7){
-            return ("<html>Insomnia Result: No clinically significant insomnia<html>");
+            return ("Insomnia Result: No clinically significant insomnia");
         }
         else if((8<=ISI)&&(ISI<=14)){
-            return ("<html>Insomnia Result: Subthreshold insomnia<html>");
+            return ("Insomnia Result: Subthreshold insomnia");
         }
         else if((15<=ISI)&&(ISI<=21)){
-            return ("<html>Insomnia Result: Clinical insomnia (moderate severity)<html>");
+            return ("Insomnia Result: Clinical insomnia (moderate severity)");
         }
         else if((21<=ISI)&&(ISI<=28)){
-            return ("<html>Insomnia Result: Clinical insomnia (severe)<html>");
+            return ("Insomnia Result: Clinical insomnia (severe)");
         }
         return("Data Not Found");
     }
@@ -55,9 +55,9 @@ public class Check_Data {
                 for (int i = 22; i < 22+7; i++) ISI_total += Integer.parseInt(testArray[i]);
             }
 
-            //CSS Reccomendation------------
-            String CSS_Reccomendation = "<html>Get immediate help: Call or text 988, call 911 " +
-                    "or go to the emergency room. STAY WITH THEM until they can be evaluated.</html>";
+            //CSS Recommendation------------
+            String CSS_EMERGENCY = "Get immediate help: Call or text 988, call 911, or go to the emergency room. STAY WITH THEM until they can be evaluated";
+            String CSS_Recommendation = "Patient is able to continue screening";
             int CSS_total = 0;
             boolean CSS_Trouble = false;
 
@@ -82,24 +82,20 @@ public class Check_Data {
             // End of Current Testing
             // This string array will have to be modified to include more tests
             // Suggested method will have to be modified to take all data, and return right recommendation
-            String result[] = new String[9];
-            result[0] = ("Patient: " + first + " " + last);
-            result[1] = ("PHQ-9 Results: " + PHQ_total);
-            result[2] = ("GAD-7 Results: " + GAD_total);
-            result[3] = ("ISI Results: "   + ISI_total);
-            result[4] = ("ASRS Total: "  + ASRS_total);
-            result[5] = ("ASRS Result: " + ASRS_recommendation);
-            result[6] = Suggested(PHQ_total,GAD_total);
-            result[7] = Suggested_ISI(ISI_total);
-            if(CSS_Trouble)
-            {
-                result[8] = CSS_Reccomendation;
-            }
-            else
-            {
-                result[8] = ("CSS Total: " + CSS_total);
-            }
-            //System.out.println(result[0].toString()+"\n"+result[1]+"\n"+result[2]+"\n"+result[3]+"\n"+result[4]+"\n"+result[5]+"\n"+result[6]);
+            // HTML tag added to fit all screen sizes
+            String result[] = new String[11];
+            result[0] = ("<html>Patient: " + first + " " + last + "</html>");
+            result[1] = ("<html>DOB: " + DOB + "</html>");
+            result[2] = ("<html>Columbia Total: " + CSS_total + "</html>");
+            if(CSS_Trouble) { result[3] =  "<html>" + CSS_EMERGENCY + "</html>"; }
+            else { result[3] = "<html>" + CSS_Recommendation + "</html>"; }
+            result[4] = ("<html>ASRS Total: " + ASRS_total + "</html>");
+            result[5] = ("<html>ASRS Result: " + ASRS_recommendation + "</html>");
+            result[6] = ("<html>ISI Total: " + ISI_total + "</html>");
+            result[7] = ("<html>" + Suggested_ISI(ISI_total)  + "</html>");
+            result[8] = ("<html>GAD-7 Total: " + GAD_total + "</html>");
+            result[9] = ("<html>GAD/PHQ Results: " + Suggested(PHQ_total,GAD_total)  + "</html>");
+            result[10] = ("<html>PHQ-9 Total: " + PHQ_total + "</html>");
             return(result);
         }
 
