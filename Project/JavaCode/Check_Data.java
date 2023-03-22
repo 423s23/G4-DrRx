@@ -84,18 +84,18 @@ public class Check_Data {
             // Suggested method will have to be modified to take all data, and return right recommendation
             // HTML tag added to fit all screen sizes
             String result[] = new String[11];
-            result[0] = ("<html>Patient: " + first + " " + last + "</html>");
+            result[0] = ("<html><h1>Patient: " + first + " " + last + "</h1></html>");
             result[1] = ("<html>DOB: " + DOB + "</html>");
-            result[2] = ("<html>Columbia Total: " + CSS_total + "</html>");
+            result[2] = ("<html><h1>Columbia Total: " + CSS_total + "</h1><p>Scale: 0-7</p></html>");
             if(CSS_Trouble) { result[3] =  "<html>" + CSS_EMERGENCY + "</html>"; }
             else { result[3] = "<html>" + CSS_Recommendation + "</html>"; }
-            result[4] = ("<html>ASRS Total: " + ASRS_total + "</html>");
+            result[4] = ("<html><h1>ASRS Total: " + ASRS_total + "</h1><p>Scale: 0-6</p></html>");
             result[5] = ("<html>ASRS Result: " + ASRS_recommendation + "</html>");
-            result[6] = ("<html>ISI Total: " + ISI_total + "</html>");
+            result[6] = ("<html><h1>ISI Total: " + ISI_total + "</h1><p>Scale: 0-28</p></html>");
             result[7] = ("<html>" + Suggested_ISI(ISI_total)  + "</html>");
-            result[8] = ("<html>GAD-7 Total: " + GAD_total + "</html>");
+            result[8] = ("<html><h1>GAD-7 Total: " + GAD_total + "</h1><p>Scale: 0-21</p></html>");
             result[9] = ("<html>GAD/PHQ Results: " + Suggested(PHQ_total,GAD_total)  + "</html>");
-            result[10] = ("<html>PHQ-9 Total: " + PHQ_total + "</html>");
+            result[10] = ("<html><h1>PHQ-9 Total: " + PHQ_total + "</h1><p>Scale: 0-27</p></html>");
             return(result);
         }
 
