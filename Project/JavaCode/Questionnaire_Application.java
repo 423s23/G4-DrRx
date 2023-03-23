@@ -43,7 +43,8 @@ public class Questionnaire_Application {
         search_button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                String patient_name = search_bar.getText();
+                String patient_name_dirty = search_bar.getText();
+                String patient_name = Check_Data.Clean(patient_name_dirty);
                 try {
                     String line;
                     Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
