@@ -30,6 +30,30 @@ public class Check_Data {
         return("Data Not Found");
     }
 
+    public static String Clean(String dirty){
+        //clean string init
+        String clean = "";
+        boolean space = false;
+        //check all characters for valid alphabet
+        for(int i = 0; i < dirty.length(); i++){
+            char current_character = dirty.charAt(i);
+            int current_character_ascii = (int)current_character;
+            if((current_character_ascii > 64 && current_character_ascii < 91) ||
+                    (current_character_ascii > 96 && current_character_ascii < 123)){
+                clean += current_character;
+                if(space)
+                {
+                    space = false;
+                }
+            }
+            else if(current_character_ascii == 32 && !space){
+                clean += current_character;
+                space = true;
+            }
+        }
+        return clean;
+    }
+
     // line is sent through call function in Questionnaire_Application
     public static String[] main(String line){
 
