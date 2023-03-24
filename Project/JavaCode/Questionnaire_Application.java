@@ -48,6 +48,7 @@ public class Questionnaire_Application {
             public void actionPerformed(ActionEvent evt){
                 String patient_name_dirty = search_bar.getText();
                 String patient_name = Check_Data.Clean(patient_name_dirty);
+
                 try {
                     String line;
                     Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
@@ -55,6 +56,7 @@ public class Questionnaire_Application {
                     while (sc.hasNext())  //returns a boolean value
                     {
                         line = sc.nextLine();
+                        // note to self: make this so it grabs a patient ONLY if their full first or last name is queried
                         if (line.toLowerCase().contains(patient_name.toLowerCase())) {
                             String[] result = Check_Data.main(line);
 
@@ -71,6 +73,18 @@ public class Questionnaire_Application {
                                 iterval++;
                             }
                             break;
+                        } else {
+                            // This should populate the result with indications that the queried
+                            // person was not found. For some reason, it causes searching Abby and Bob to not work.
+
+                            /*String[] result = Check_Data.main("Patient not found");
+
+                            int iterval = 0;
+                            for (JLabel label : labels) {
+                                label.setText(result[iterval]);
+                                iterval++;
+                            }
+                            break;*/
                         }
                     }
                     sc.close();
