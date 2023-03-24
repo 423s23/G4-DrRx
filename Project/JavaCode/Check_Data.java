@@ -62,6 +62,23 @@ public class Check_Data {
             int PHQ_total = 0, GAD_total = 0, ISI_total = 0, ASRS_total = 0;
             String ASRS_recommendation = "";
             String[] testArray = line.split(",");
+
+            if(testArray[0] == "Patient not found"){
+
+                String result[] = new String[11];
+                result[0] = ("<html><h1>Patient: Patient not found </h1></html>");
+                result[1] = ("<html>DOB: NA </html>");
+                result[2] = ("<html><h1>Columbia Total: NA </h1><p>Scale: 0-7</p></html>");
+                result[3] = ("<html> NA </html>");
+                result[4] = ("<html><h1>ASRS Total: NA </h1><p>Scale: 0-6</p></html>");
+                result[5] = ("<html>ASRS Result: NA </html>");
+                result[6] = ("<html><h1>ISI Total: NA </h1><p>Scale: 0-28</p></html>");
+                result[7] = ("<html> NA </html>");
+                result[8] = ("<html><h1>GAD-7 Total: NA </h1><p>Scale: 0-21</p></html>");
+                result[9] = ("<html>GAD/PHQ Results: NA </html>");
+                result[10] = ("<html><h1>PHQ-9 Total: NA </h1><p>Scale: 0-27</p></html>");
+                return result;
+            }
             String first = testArray[0];
             String last = testArray[1];
             String DOB = testArray[2];
