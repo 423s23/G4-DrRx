@@ -32,7 +32,7 @@ public class Check_Data {
 
     public static String Clean(String dirty){
         //clean string init
-        String clean = "";
+        String clean = null;
         boolean space = false;
         //check all characters for valid alphabet
         for(int i = 0; i < dirty.length(); i++){
@@ -40,12 +40,17 @@ public class Check_Data {
             int current_character_ascii = (int)current_character;
             if((current_character_ascii > 64 && current_character_ascii < 91) ||
                     (current_character_ascii > 96 && current_character_ascii < 123)){
-                clean += current_character;
+                if(clean != null){
+                    clean += current_character;}
+                //first character in clean string
+                else{clean = ""; clean += current_character;}
+                //makes sure that there is only one space at most between each letter
                 if(space)
                 {
                     space = false;
                 }
             }
+            //adds a space if applicable
             else if(current_character_ascii == 32 && !space){
                 clean += current_character;
                 space = true;
