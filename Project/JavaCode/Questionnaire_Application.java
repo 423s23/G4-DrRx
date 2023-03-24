@@ -39,6 +39,7 @@ public class Questionnaire_Application {
             labels.add(label);
         }
 
+
         // Activate search when button pressed
         search_button.addActionListener(new ActionListener(){
             @Override
@@ -82,6 +83,42 @@ public class Questionnaire_Application {
                                 iterval++;
                             }
                             break;*/
+                        }
+                    }
+                    sc.close();
+                } catch (FileNotFoundException ignored) {
+                }
+            }
+        });
+
+        search_bar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                String patient_name_dirty = search_bar.getText();
+                String patient_name = Check_Data.Clean(patient_name_dirty);
+                try {
+                    String line;
+                    Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
+                    sc.useDelimiter(",");   //sets the delimiter pattern
+                    while (sc.hasNext())  //returns a boolean value
+                    {
+                        line = sc.nextLine();
+                        if (line.toLowerCase().contains(patient_name.toLowerCase())) {
+                            String[] result = Check_Data.main(line);
+
+                            int iterval = 0;
+
+                            for (JLabel label : labels) {
+                                label.setText(result[iterval]);
+                                if(result[iterval].contains("Get immediate help"))
+                                {
+                                    label.setForeground(Color.RED);
+                                } else {
+                                    label.setForeground(Color.BLACK);
+                                }
+                                iterval++;
+                            }
+                            break;
                         }
                     }
                     sc.close();
