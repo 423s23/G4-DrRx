@@ -15,8 +15,6 @@ public class Questionnaire_Application {
         JFrame frame = new JFrame("Patient Lookup");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //test1
-
         // Define new Search Field
         JTextField search_bar = new JTextField(30);
         search_bar.setHorizontalAlignment(JTextField.CENTER);
@@ -24,6 +22,12 @@ public class Questionnaire_Application {
         JLabel jlabel = new JLabel("Enter Patient Name For Results:");
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
         search_bar.setFont(new Font("Verdana", Font.BOLD,26));
+        JTextArea introduction = new JTextArea("This is the patient lookup area! Please type in the name of whoever you are \nlooking up and a new window will appear with their information. \n(If you input incorrect information nothing will appear.)");
+
+        introduction.setFont(new Font("Verdana", Font.PLAIN,26));
+        introduction.setLineWrap(true);
+        introduction.setSize(1050,550);
+        introduction.setBackground(Color.PINK);
 
         // Define a panel to hold the Search Field
         JPanel searchPanel = new JPanel();
@@ -31,6 +35,9 @@ public class Questionnaire_Application {
         searchPanel.add(jlabel);
         searchPanel.add(search_bar);
         searchPanel.add(search_button);
+
+        JPanel textPanel = new JPanel();
+        textPanel.add(introduction);
 
         // Create Enough Labels for the Patient Information
         int labelAmt = 11; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
@@ -46,94 +53,22 @@ public class Questionnaire_Application {
         search_button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                String patient_name_dirty = search_bar.getText();
-                String patient_name = Check_Data.Clean(patient_name_dirty);
-
-                try {
-                    String line;
-                    Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
-                    sc.useDelimiter(",");   //sets the delimiter pattern
-                    while (sc.hasNext())  //returns a boolean value
-                    {
-                        line = sc.nextLine();
-                        // note to self: make this so it grabs a patient ONLY if their full first or last name is queried
-                        if (line.toLowerCase().contains(patient_name.toLowerCase())) {
-                            String[] result = Check_Data.main(line);
-
-                            int iterval = 0;
-
-                            for (JLabel label : labels) {
-                                label.setText(result[iterval]);
-                                if(result[iterval].contains("Get immediate help"))
-                                {
-                                    label.setForeground(Color.RED);
-                                } else {
-                                    label.setForeground(Color.BLACK);
-                                }
-                                iterval++;
-                            }
-                            break;
-                        } else {
-                            // This should populate the result with indications that the queried
-                            // person was not found. For some reason, it causes searching Abby and Bob to not work.
-
-                            /*String[] result = Check_Data.main("Patient not found");
-
-                            int iterval = 0;
-                            for (JLabel label : labels) {
-                                label.setText(result[iterval]);
-                                iterval++;
-                            }
-                            break;*/
-                        }
-                    }
-                    sc.close();
-                } catch (FileNotFoundException ignored) {
-                }
+                display(search_bar,labels);
             }
         });
 
         search_bar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
-                String patient_name_dirty = search_bar.getText();
-                String patient_name = Check_Data.Clean(patient_name_dirty);
-                try {
-                    String line;
-                    Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
-                    sc.useDelimiter(",");   //sets the delimiter pattern
-                    while (sc.hasNext())  //returns a boolean value
-                    {
-                        line = sc.nextLine();
-                        if (line.toLowerCase().contains(patient_name.toLowerCase())) {
-                            String[] result = Check_Data.main(line);
-
-                            int iterval = 0;
-
-                            for (JLabel label : labels) {
-                                label.setText(result[iterval]);
-                                if(result[iterval].contains("Get immediate help"))
-                                {
-                                    label.setForeground(Color.RED);
-                                } else {
-                                    label.setForeground(Color.BLACK);
-                                }
-                                iterval++;
-                            }
-                            break;
-                        }
-                    }
-                    sc.close();
-                } catch (FileNotFoundException ignored) {
-                }
+                display(search_bar,labels);
             }
         });
 
         // Define a panel to hold the recommendations
         JPanel recommendations = new JPanel();
-        GridLayout layout = new GridLayout(0,2, 0, 5); // Rows is zero so the number becomes flexible
+        GridLayout layout = new GridLayout(0,2, 0, 3); // Rows is zero so the number becomes flexible
         recommendations.setLayout(layout);
-        Border empty = BorderFactory.createEmptyBorder(0,20, 50, 50);
+        Border empty = BorderFactory.createEmptyBorder(0,20, 70, 50);
         recommendations.setBorder(empty);
 
         // labels for patient recommendation, have to be added to be able to display
@@ -146,6 +81,59 @@ public class Questionnaire_Application {
         JPanel wrapper = new JPanel();
         wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS)); // Adds new panels underneath the last
         wrapper.add(searchPanel);
+        wrapper.add(textPanel);
+        wrapper.add(recommendations);
+        frame.add(wrapper);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setVisible(true);
+    }
+    public static void display(JTextField search_bar, ArrayList<JLabel> labels){
+        JFrame frame = new JFrame("Patient Panel");
+
+        String patient_name_dirty = search_bar.getText();
+        String patient_name = Check_Data.Clean(patient_name_dirty);
+        try {
+            String line;
+            Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
+            sc.useDelimiter(",");   //sets the delimiter pattern
+            while (sc.hasNext())  //returns a boolean value
+            {
+                line = sc.nextLine();
+                if (line.toLowerCase().contains(patient_name.toLowerCase())) {
+                    String[] result = Check_Data.main(line);
+
+                    int iterval = 0;
+
+                    for (JLabel label : labels) {
+                        label.setText(result[iterval]);
+                        if(result[iterval].contains("Get immediate help"))
+                        {
+                            label.setForeground(Color.RED);
+                        } else {
+                            label.setForeground(Color.BLACK);
+                        }
+                        iterval++;
+                    }
+                    break;
+                }
+            }
+            sc.close();
+        } catch (FileNotFoundException ignored) {
+        }
+
+        JPanel recommendations = new JPanel();
+        GridLayout layout = new GridLayout(0,2, 0, 1); // Rows is zero so the number becomes flexible
+        recommendations.setLayout(layout);
+        Border empty = BorderFactory.createEmptyBorder(0,20, 70, 50);
+        recommendations.setBorder(empty);
+
+        // labels for patient recommendation, have to be added to be able to display
+        for (JLabel label : labels) {
+            recommendations.add(label);
+        }
+
+        JPanel wrapper = new JPanel();
+        wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS)); // Adds new panels underneath the last
         wrapper.add(recommendations);
         frame.add(wrapper);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);

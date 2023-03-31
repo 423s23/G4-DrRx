@@ -135,7 +135,7 @@ public class Check_Data {
             result[2] = ("<html><h1>Columbia Total: " + CSS_total + "</h1><p>Scale: 0-7</p></html>");
             if(CSS_Trouble) { result[3] =  "<html>" + CSS_EMERGENCY + "</html>"; }
             else { result[3] = "<html>" + CSS_Recommendation + "</html>"; }
-            result[4] = ("<html><h1>ASRS Total: " + ASRS_total + "</h1><p>Scale: 0-6</p></html>");
+            result[4] = ("<html><h1>ASRS Total: " + ASRS_total + "</h1><p>Scale: 0-36</p></html>");
             result[5] = ("<html>ASRS Result: " + ASRS_recommendation + "</html>");
             result[6] = ("<html><h1>ISI Total: " + ISI_total + "</h1><p>Scale: 0-28</p></html>");
             result[7] = ("<html>" + Suggested_ISI(ISI_total)  + "</html>");
