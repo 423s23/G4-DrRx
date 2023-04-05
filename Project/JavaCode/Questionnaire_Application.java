@@ -22,7 +22,7 @@ public class Questionnaire_Application {
         JLabel jlabel = new JLabel("Enter Patient Name For Results:");
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
         search_bar.setFont(new Font("Verdana", Font.BOLD,26));
-        JTextArea introduction = new JTextArea("This is the patient lookup area! Please type in the name of whoever you are \nlooking up and a new window will appear with their information. \n(If you input incorrect information nothing will appear.)");
+        JTextArea introduction = new JTextArea("This is the patient lookup area! Please type in the last name of whoever you are \nlooking up and a new window will appear with their information. \n(If you input incorrect information nothing will appear.)");
 
         introduction.setFont(new Font("Verdana", Font.PLAIN,26));
         introduction.setLineWrap(true);
@@ -90,8 +90,10 @@ public class Questionnaire_Application {
     public static void display(JTextField search_bar, ArrayList<JLabel> labels){
         JFrame frame = new JFrame("Patient Panel");
 
-        String patient_name_dirty = search_bar.getText();
+        String patient_name_dirty = (search_bar.getText()).toLowerCase();
         String patient_name = Check_Data.Clean(patient_name_dirty);
+
+        String[] result = null;
         try {
             String line;
             Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
@@ -99,26 +101,31 @@ public class Questionnaire_Application {
             while (sc.hasNext())  //returns a boolean value
             {
                 line = sc.nextLine();
-                if (line.toLowerCase().contains(patient_name.toLowerCase())) {
-                    String[] result = Check_Data.main(line);
+                String[] current_line = (line.toLowerCase()).split(",");
 
-                    int iterval = 0;
-
-                    for (JLabel label : labels) {
-                        label.setText(result[iterval]);
-                        if(result[iterval].contains("Get immediate help"))
-                        {
-                            label.setForeground(Color.RED);
-                        } else {
-                            label.setForeground(Color.BLACK);
-                        }
-                        iterval++;
-                    }
+                if (current_line[1].equals(patient_name)) {
+                    result = Check_Data.main(line);
                     break;
                 }
             }
+            if(result == null) {
+                result = Check_Data.main("Patient not found");
+            }
             sc.close();
         } catch (FileNotFoundException ignored) {
+        }
+
+        int iter_val = 0;
+
+        for (JLabel label : labels) {
+            label.setText(result[iter_val]);
+            if(result[iter_val].contains("Get immediate help"))
+            {
+                label.setForeground(Color.RED);
+            } else {
+                label.setForeground(Color.BLACK);
+            }
+            iter_val++;
         }
 
         JPanel recommendations = new JPanel();
