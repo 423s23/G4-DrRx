@@ -142,10 +142,12 @@ public class Questionnaire_Application {
 
         // labels for patient recommendation, have to be added to be able to display
         for (JLabel label : labels) {
+            label.setHorizontalAlignment(2);
             recommendations.add(label);
         }
 
         JButton b = new JButton("Back");
+
         b.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent evt){
@@ -160,7 +162,7 @@ public class Questionnaire_Application {
 
         wrapper.add(b);
 
-        Border empty2 = BorderFactory.createEmptyBorder(40,0, 150, 0);
+        Border empty2 = BorderFactory.createEmptyBorder(40,20, 150, 0);
         wrapper.setBorder(empty2);
 
         frame.add(wrapper);
