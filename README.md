@@ -4,16 +4,27 @@ This is a repository for the 2023 ESOF423 Project working on the problem establi
 
 ## Documentation for Users
 ### Description of the Project
-This is a Zero Feature Release of the DrRx software. It is able to open a window with placeholders for Mental Health Questionnaires and a Patient Information collection placeholder.
+This is a Feature Complete Release of the DrRx software. It is able to complete a search query for a patient's information, open a separate window to display that information, and provide results from the most recent test data from the patient's survey results.
 
 ### To Obtain and Install the Software
-Within this repository, navigate through to the Project/JavaCode folder. Inside is three files, Questionnaire_Application, Questions, and application; download all three and place them all within the same folder, perferably onto the desktop. The DrRx software is now installed.
+Within this repository, navigate through to the Project/JavaCode folder. Inside are three files, Questionnaire_Application, Check_Data, and DrRx_Application; download all three and place them all within the same folder, perferably onto the desktop. In the same repository, navigate to the Project/testData folder. Download the sampleinput.csv file and place it in the same folder as the other previously downloaded files. The DrRx software is now installed.
 
 ### To Run the Software
-Find the folder on your desktop where the three files are located. Double click on the application.jar file to open and run the software.
+Find the folder on your desktop where the files are located. Double click on the DrRx_Application.jar file from the previous step. The Patient Search Window is displayed and the application is now running. 
 
 ### To Use the Software
-With the DrRx software running, a fullscreen window will appear. The current buttons include: Personal Info, Quiz 1, Quiz 2, Quiz 3 and Quiz 4. Click on a button to open another window. To use the quiz window in this release, open a quiz by clicking the corresponding button, select one option for an answer. The 'Next' button is currently inactive. To return to the main questionnaire window, close the current window in the upper right corner.
+With the DrRx application running, the Patient Search Window is displayed. Patients can be searched by LAST NAME ONLY. A set of data has been provided and can be accessed by searching for 'Bob', 'Wagner', or 'Smith'. Searching these names will provide a new window of patient information. To search another name, click the 'Back' button at the bottom of the screen or simply close the Patient Information Window. 
+
+To add more patients into the current system, open the sampleinput.csv file from the same folder where the DrRx_Application.jar file is located. You will see each patient is a separate line. To add a patient into the system, follow this exact format documented here and shown in the provided patients:
+
+FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#,#,#,ASRS,#,#,#,#,#,#,CSS,#,#,#,#,#,#,#
+
+First Name - Joe
+Last Name - Smith
+DOB - 3_29_2019
+PHQ-9, 2, 1, 1, 2, 3, 1, 0, 1, 1,
+GAD-7, 0, 0, 3, 1, 0, 2, 1,
+
 
 ### To Report a Bug
 EDIT THIS: probably using the issues tab in github
