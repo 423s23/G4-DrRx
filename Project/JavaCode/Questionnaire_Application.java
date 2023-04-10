@@ -22,7 +22,9 @@ public class Questionnaire_Application {
         JLabel jlabel = new JLabel("Enter Patient Name For Results:");
         jlabel.setFont(new Font("Verdana", Font.BOLD,26));
         search_bar.setFont(new Font("Verdana", Font.BOLD,26));
-        JTextArea introduction = new JTextArea("This is the patient lookup area! Please type in the last name of whoever you are \nlooking up and a new window will appear with their information. \n(If you input incorrect information nothing will appear.)");
+        JTextArea introduction = new JTextArea("This is the patient lookup area! " +
+                "Please type in the last name of whoever you are looking up and a new window will appear " +
+                "with their information. \n\n(If you input incorrect information nothing will appear.)");
 
         introduction.setFont(new Font("Verdana", Font.PLAIN,26));
         introduction.setLineWrap(true);
@@ -35,6 +37,9 @@ public class Questionnaire_Application {
         searchPanel.add(jlabel);
         searchPanel.add(search_bar);
         searchPanel.add(search_button);
+
+        Border empty = BorderFactory.createEmptyBorder(70,0, 0, 0);
+        searchPanel.setBorder(empty);
 
         JPanel textPanel = new JPanel();
         textPanel.add(introduction);
@@ -67,9 +72,9 @@ public class Questionnaire_Application {
         // Define a panel to hold the recommendations
         JPanel recommendations = new JPanel();
         GridLayout layout = new GridLayout(0,2, 0, 3); // Rows is zero so the number becomes flexible
+        Border empty2 = BorderFactory.createEmptyBorder(0,20, 70, 50);
         recommendations.setLayout(layout);
-        Border empty = BorderFactory.createEmptyBorder(0,20, 70, 50);
-        recommendations.setBorder(empty);
+        recommendations.setBorder(empty2);
 
         // labels for patient recommendation, have to be added to be able to display
         for (JLabel label : labels) {
@@ -131,6 +136,7 @@ public class Questionnaire_Application {
         JPanel recommendations = new JPanel();
         GridLayout layout = new GridLayout(0,2, 0, 1); // Rows is zero so the number becomes flexible
         recommendations.setLayout(layout);
+
         Border empty = BorderFactory.createEmptyBorder(0,20, 70, 50);
         recommendations.setBorder(empty);
 
@@ -139,10 +145,26 @@ public class Questionnaire_Application {
             recommendations.add(label);
         }
 
+        JButton b = new JButton("Back");
+        b.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                frame.dispose();
+            }
+        });
+
         JPanel wrapper = new JPanel();
+
         wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS)); // Adds new panels underneath the last
         wrapper.add(recommendations);
+
+        wrapper.add(b);
+
+        Border empty2 = BorderFactory.createEmptyBorder(40,0, 150, 0);
+        wrapper.setBorder(empty2);
+
         frame.add(wrapper);
+
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
