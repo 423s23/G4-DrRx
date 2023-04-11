@@ -98,7 +98,8 @@ public class Questionnaire_Application {
         String patient_name_dirty = (search_bar.getText()).toLowerCase();
         String patient_name = Check_Data.Clean(patient_name_dirty);
 
-        String[] result = null;
+        String[][] allResults = null;
+        int counter = 1;
         try {
             String line;
             Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
@@ -109,19 +110,40 @@ public class Questionnaire_Application {
                 String[] current_line = (line.toLowerCase()).split(",");
 
                 if (current_line[1].equals(patient_name)) {
-                    result = Check_Data.main(line);
-                    break;
+                    if(allResults == null)
+                    {
+                        allResults = new String[][]{Check_Data.main(line)};
+                    }
+                    else
+                    {
+                        String[][] tempArray = new String[allResults.length + 1][];
+                        System.arraycopy(allResults, 0, tempArray, 0, allResults.length);
+                        tempArray[counter] = Check_Data.main(line);
+                        allResults = tempArray;
+                        counter++;
+                    }
                 }
             }
-            if(result == null) {
-                result = Check_Data.main("Patient not found");
+            if(allResults == null) {
+                allResults[0] = Check_Data.main("Patient not found");
             }
             sc.close();
         } catch (FileNotFoundException ignored) {
         }
 
-        int iter_val = 0;
+        String[] result = null;
 
+        if(allResults.length > 1)
+        {
+            //Add Code that adds a drop-down to the search bar asking which person they meant.
+            result = allResults[0]; //delete this later
+        }
+        else
+        {
+            result = allResults[0];
+        }
+
+        int iter_val = 0;
         for (JLabel label : labels) {
             label.setText(result[iter_val]);
             if(result[iter_val].contains("Get immediate help"))
