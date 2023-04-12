@@ -19,15 +19,21 @@ To add more patients into the current system, open the sampleinput.csv file from
 
 FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#,#,#,ASRS,#,#,#,#,#,#,CSS,#,#,#,#,#,#,#
 
+Sample Data: 
 First Name - Joe
 Last Name - Smith
 DOB - 3_29_2019
-PHQ-9, 2, 1, 1, 2, 3, 1, 0, 1, 1,
-GAD-7, 0, 0, 3, 1, 0, 2, 1,
+PHQ-9,2,1,1,2,3,1,0,1,1,
+GAD-7,0,0,3,1,0,2,1,
+ISI,2,2,2,2,2,2,2,
+ASRS,0,1,2,3,4,0,
+CSS,1,1,1,1,1,1,1
 
+Sample Data in Correct Formatting:
+Joe,Smith,3_29_2019,PHQ-9,2,1,1,2,3,1,0,1,1,GAD-7,0,0,3,1,0,2,1,ISI,2,2,2,2,2,2,2,ASRS,0,1,2,3,4,0,CSS,1,1,1,1,1,1,1
 
 ### To Report a Bug
-EDIT THIS: probably using the issues tab in github
+
 
 ## Documentation for Developers
 * Source code for the latest version of the software can be obtained by downloading the Project folder in its entirety.
