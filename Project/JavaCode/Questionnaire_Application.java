@@ -136,6 +136,9 @@ public class Questionnaire_Application {
         if(allResults.length > 1)
         {
             //Add Code that adds a drop-down to the search bar asking which person they meant.
+            //JComboBox
+            //Menu Items are Names
+            //Result = patient with same first name
             result = allResults[0]; //delete this later
         }
         else
