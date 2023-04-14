@@ -2,7 +2,10 @@ public class Check_Data {
 
     // Method to Determine Condition and Recommendation
     public static String Suggested(int PHQ, int GAD){
-        if ((PHQ<10)&&(GAD>9)){
+        if ((GAD>21)||(GAD<0)||(PHQ>27)||(PHQ<0)) {
+            return ("Data Not Found");
+        }
+        else if ((PHQ<10)&&(GAD>9)){
             return ("Primarily Anxiety. Begin Sertraline starting dose 50mg. Reassess after 4 weeks");
         }
         else if ((GAD>9)&&(PHQ>9)){
@@ -11,7 +14,12 @@ public class Check_Data {
         else if ((GAD<10)&&(PHQ>9)){
             return("Primarily Depression. Begin Buproprion XL 150mg QD. Reassess after 4 weeks");
         }
-        return("Data Not Found");
+        else if ((GAD>=0)&&(PHQ>=0)) {
+            return("Negative for both Anxiety and Depression");
+        }
+        else {
+            return ("Data Not Found");
+        }
     }
 
     public static String Suggested_ISI(int ISI){
