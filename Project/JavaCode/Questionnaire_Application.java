@@ -1,3 +1,5 @@
+import org.junit.platform.commons.util.StringUtils;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -6,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Questionnaire_Application {
@@ -112,18 +115,21 @@ public class Questionnaire_Application {
                 if (current_line[1].equals(patient_name)) {
                     if(allResults == null)
                     {
-                        allResults = new String[][]{Check_Data.main(line)};
+                        allResults = new String[][]{current_line};
                     }
                     else
                     {
                         String[][] tempArray = new String[allResults.length + 1][];
                         System.arraycopy(allResults, 0, tempArray, 0, allResults.length);
-                        tempArray[counter] = Check_Data.main(line);
+                        tempArray[counter] = current_line;
                         allResults = tempArray;
                         counter++;
                     }
                 }
             }
+
+            System.out.println(Arrays.deepToString(allResults));
+
             if(allResults == null) {
                 allResults[0] = Check_Data.main("Patient not found");
             }
@@ -142,7 +148,20 @@ public class Questionnaire_Application {
         {
             result = allResults[0];
         }
+        String checkDataString = "";
 
+        //making a valid string for CheckData.main
+        for(int i = 0; i < allResults[0].length; i++)
+        {
+            checkDataString += result[i] + ",";
+        }
+        StringBuffer checkDataBuffer = new StringBuffer(checkDataString);
+        checkDataBuffer.deleteCharAt(checkDataBuffer.length() -1);
+        checkDataString = checkDataBuffer.toString();
+
+        System.out.println(checkDataString);
+
+        result = Check_Data.main(checkDataString);
         int iter_val = 0;
         for (JLabel label : labels) {
             label.setText(result[iter_val]);
