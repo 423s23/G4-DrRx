@@ -15,15 +15,13 @@ public class Check_Data {
             return("Primarily Depression. Begin Buproprion XL 150mg QD. Reassess after 4 weeks");
         }
         else if ((GAD>=0)&&(PHQ>=0)) {
-            return("Negative for both Anxiety and Depression");
+            return ("Negative for both Anxiety and Depression");
         }
-        else {
-            return ("Data Not Found");
-        }
+        return null;
     }
 
     public static String Suggested_ISI(int ISI){
-        if(ISI<=7){
+        if((ISI<=7)&&(ISI>=0)){
             return ("Insomnia Result: No clinically significant insomnia");
         }
         else if((8<=ISI)&&(ISI<=14)){
