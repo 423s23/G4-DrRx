@@ -74,11 +74,11 @@ class Check_DataTest {
     @Test
     void clean_whitespace(){
         String patient_name = Check_Data.Clean("   Jess");
-        assertArrayEquals("Jess".toCharArray(), patient_name.toCharArray());
+        assertEquals("Jess", patient_name);
         patient_name = Check_Data.Clean("Jess   ");
-        assertArrayEquals("Jess".toCharArray(), patient_name.toCharArray());
+        assertEquals("Jess", patient_name);
         patient_name = Check_Data.Clean("   Jess   ");
-        assertEquals("Jess", patient_name.toCharArray());
+        assertEquals("Jess", patient_name);
     }
 
     @Test

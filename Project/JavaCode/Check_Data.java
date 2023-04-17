@@ -37,6 +37,8 @@ public class Check_Data {
     }
 
     public static String Clean(String dirty){
+        //takes out all whitespace
+        dirty = dirty.replaceAll(" ", "");
         //clean string init
         String clean = null;
         boolean space = false;
@@ -45,7 +47,7 @@ public class Check_Data {
             char current_character = dirty.charAt(i);
             int current_character_ascii = (int)current_character;
             if((current_character_ascii > 64 && current_character_ascii < 91) ||
-                    (current_character_ascii > 96 && current_character_ascii < 123)){
+                    (current_character_ascii > 96 && current_character_ascii < 123) || current_character_ascii == 45){
                 if(clean != null){
                     clean += current_character;}
                 //first character in clean string
