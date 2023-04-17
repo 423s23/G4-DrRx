@@ -131,9 +131,6 @@ public class Check_Data {
                 }
             }
 
-            // End of Current Testing
-            // This string array will have to be modified to include more tests
-            // Suggested method will have to be modified to take all data, and return right recommendation
             // HTML tag added to fit all screen sizes
             String result[] = new String[11];
             result[0] = ("<html><h1>Patient: " + first + " " + last + "</h1></html>");

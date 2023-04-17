@@ -82,7 +82,26 @@ class Check_DataTest {
     }
 
     @Test
-    void main() {
-        assertTrue(true);
+    void main_handles_no_patient() {
+        String line = "Patient not found";
+        String[] testArray = Check_Data.main(line);
+        assertTrue(testArray[0] == "<html><h1>Patient: Patient not found </h1></html>");
+        assertTrue(testArray.length == 11);
+        for (int i=1;i<11;i++) {
+            assertTrue(testArray[i].contains("NA"));
+        }
+    }
+
+    @Test
+    void main_handles_patients(){
+        String line = "Joe,Smith,3_29_2019,PHQ-9,2,1,1,2,3,1,0,1,1,GAD-7,0,0,3,1,0,2,1,ISI,2,2,2,2,2,2,2,ASRS,0,1,2,3,4,0,CSS,1,1,1,1,1,1,1";
+        String[] testArray = Check_Data.main(line);
+        assertTrue(testArray.length==11);
+
+        // Correct Name and DOB
+        String[] expected = line.split(",");
+        assertTrue(testArray[0].contains(expected[0]));
+        assertTrue(testArray[0].contains(expected[1]));
+        assertTrue(testArray[1].contains(expected[2]));
     }
 }
