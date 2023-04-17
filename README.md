@@ -22,7 +22,7 @@ FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#
 Sample Data:  
 First Name - Joe  
 Last Name - Smith  
-DOB - 3_29_2019  
+DOB - 3_29_2019 (March 29, 2019)  
 PHQ-9,2,1,1,2,3,1,0,1,1,  
 GAD-7,0,0,3,1,0,2,1,  
 ISI,2,2,2,2,2,2,2,  
