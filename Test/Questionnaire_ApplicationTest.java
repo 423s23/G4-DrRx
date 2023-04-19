@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,6 +31,7 @@ class Questionnaire_ApplicationTest {
                 //Checking if Empty
                 for (int i=0;i<44;i++) {
                     assertTrue(!current_line[i].isEmpty());
+                    assertTrue(!current_line[i].isBlank());
                 }
             }
 
