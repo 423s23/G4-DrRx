@@ -1,5 +1,3 @@
-import org.junit.platform.commons.util.StringUtils;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -17,6 +15,9 @@ public class Questionnaire_Application {
         // Create and set up a frame window
         JFrame frame = new JFrame("Patient Lookup");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Help button for documentation
+        JButton help_button = new JButton("How to Use");
 
         // Define new Search Field
         JTextField search_bar = new JTextField(30);
@@ -47,6 +48,9 @@ public class Questionnaire_Application {
         JPanel textPanel = new JPanel();
         textPanel.add(introduction);
 
+        JPanel helpPanel = new JPanel();
+        helpPanel.add(help_button);
+
         // Create Enough Labels for the Patient Information
         int labelAmt = 11; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
         ArrayList<JLabel> labels = new ArrayList<>();
@@ -72,6 +76,18 @@ public class Questionnaire_Application {
             }
         });
 
+        help_button.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                try {
+                    java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://github.com/423s23/G4-DrRx/blob/main/README.md"));
+                }
+                catch (java.io.IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
+
         // Define a panel to hold the recommendations
         JPanel recommendations = new JPanel();
         GridLayout layout = new GridLayout(0,2, 0, 3); // Rows is zero so the number becomes flexible
@@ -90,11 +106,13 @@ public class Questionnaire_Application {
         wrapper.setLayout(new BoxLayout(wrapper, BoxLayout.Y_AXIS)); // Adds new panels underneath the last
         wrapper.add(searchPanel);
         wrapper.add(textPanel);
+        wrapper.add(helpPanel);
         wrapper.add(recommendations);
         frame.add(wrapper);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
+
     public static void display(JTextField search_bar, ArrayList<JLabel> labels){
         JFrame frame = new JFrame("Patient Panel");
 

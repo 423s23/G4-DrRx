@@ -29,7 +29,7 @@ ISI,2,2,2,2,2,2,2,
 ASRS,0,1,2,3,4,0,  
 CSS,1,1,1,1,1,1,1  
 
-Sample Data in Correct Formatting:
+Sample Data in Correct Formatting:  
 Joe,Smith,3_29_2019,PHQ-9,2,1,1,2,3,1,0,1,1,GAD-7,0,0,3,1,0,2,1,ISI,2,2,2,2,2,2,2,ASRS,0,1,2,3,4,0,CSS,1,1,1,1,1,1,1
 
 ### To Report a Bug
