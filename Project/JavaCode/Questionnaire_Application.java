@@ -52,14 +52,7 @@ public class Questionnaire_Application {
         helpPanel.add(help_button);
 
         // Create Enough Labels for the Patient Information
-        int labelAmt = 11; // EQUAL TO THE NUMBER OF FIELDS THAT WILL BE RETURNED BY CHECK_DATA
-        ArrayList<JLabel> labels = new ArrayList<>();
-        for (int i = 0; i < labelAmt; i++) {
-            JLabel label = new JLabel("",SwingConstants.CENTER);
-            label.setFont(new Font("Verdana", Font.BOLD,17));
-            labels.add(label);
-        }
-
+        ArrayList<JLabel> labels = buildLabels(11);
 
         // Activate search when button pressed
         search_button.addActionListener(new ActionListener(){
@@ -232,4 +225,16 @@ public class Questionnaire_Application {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
+
+    // -- ********** -- BUILDER DESIGN PATTERN -- ********** --
+    public static ArrayList<JLabel> buildLabels(int label_amt) {
+        ArrayList<JLabel> labels = new ArrayList<>();
+        for (int i = 0; i < label_amt; i++) {
+            JLabel label = new JLabel("",SwingConstants.CENTER);
+            label.setFont(new Font("Verdana", Font.BOLD,17));
+            labels.add(label);
+        }
+        return labels;
+    }
+    // -- ********** -- BUILDER DESIGN PATTERN -- ********** --
 }
