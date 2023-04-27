@@ -179,7 +179,7 @@ public class Questionnaire_Application {
         int iter_val = 0;
         for (JLabel label : labels) {
             label.setText(result[iter_val]);
-            if(result[iter_val].contains("Get immediate help"))
+            if(result[iter_val].contains("CSS WARNING!"))
             {
                 label.setForeground(Color.RED);
             } else {

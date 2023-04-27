@@ -110,7 +110,7 @@ public class Check_Data {
             }
 
             //CSS Recommendation------------
-            String CSS_EMERGENCY = "Get immediate help: Call or text 988, call 911, or go to the emergency room. STAY WITH THEM until they can be evaluated";
+            String CSS_EMERGENCY = "CSS WARNING! Patient may be at risk!";
             String CSS_Recommendation = "Patient is able to continue screening";
             int CSS_total = 0;
             boolean CSS_Trouble = false;
