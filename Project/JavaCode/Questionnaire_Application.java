@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -29,6 +30,7 @@ public class Questionnaire_Application {
         JTextArea introduction = new JTextArea("This is the patient lookup area! " +
                 "Please type in the last name of whoever you are looking up and a new window will appear " +
                 "with their information. \n\n(If you input incorrect information nothing will appear.)");
+        introduction.setEditable(false);
 
         introduction.setFont(new Font("Verdana", Font.PLAIN,26));
         introduction.setLineWrap(true);
@@ -114,39 +116,41 @@ public class Questionnaire_Application {
 
         String[][] allResults = null;
         int counter = 1;
+        String line;
+        File in = new File(("Project\\testData\\sampleinput.csv"));
+        Scanner sc = null;
         try {
-            String line;
-            Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
-            sc.useDelimiter(",");   //sets the delimiter pattern
-            while (sc.hasNext())  //returns a boolean value
-            {
-                line = sc.nextLine();
-                String[] current_line = (line.toLowerCase()).split(",");
+            sc = new Scanner(in);
+        } catch (FileNotFoundException ignore) {
+        }
+        sc.useDelimiter(",");   //sets the delimiter pattern
+        while (sc.hasNext())  //returns a boolean value
+        {
+            line = sc.nextLine();
+            String[] current_line = (line.toLowerCase()).split(",");
 
-                if (current_line[1].equals(patient_name)) {
-                    if(allResults == null)
-                    {
-                        allResults = new String[][]{current_line};
-                    }
-                    else
-                    {
-                        String[][] tempArray = new String[allResults.length + 1][];
-                        System.arraycopy(allResults, 0, tempArray, 0, allResults.length);
-                        tempArray[counter] = current_line;
-                        allResults = tempArray;
-                        counter++;
-                    }
+            if (current_line[1].equals(patient_name)) {
+                if(allResults == null)
+                {
+                    allResults = new String[][]{current_line};
+                }
+                else
+                {
+                    String[][] tempArray = new String[allResults.length + 1][];
+                    System.arraycopy(allResults, 0, tempArray, 0, allResults.length);
+                    tempArray[counter] = current_line;
+                    allResults = tempArray;
+                    counter++;
                 }
             }
-
-            System.out.println(Arrays.deepToString(allResults));
-
-            if(allResults == null) {
-                allResults[0] = Check_Data.main("Patient not found");
-            }
-            sc.close();
-        } catch (FileNotFoundException ignored) {
         }
+
+        System.out.println(Arrays.deepToString(allResults));
+
+        if(allResults == null) {
+            allResults[0] = Check_Data.main("Patient not found");
+        }
+        sc.close();
 
         String[] result = null;
 

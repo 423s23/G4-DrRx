@@ -76,6 +76,10 @@ public class Check_Data {
             String ASRS_recommendation = "";
             String[] testArray = line.split(",");
 
+            for (int temp = 0; temp < testArray.length-1; temp++){
+                System.out.println(testArray[temp]);
+            }
+
             if(testArray[0] == "Patient not found"){
 
                 String result[] = new String[11];
@@ -96,16 +100,17 @@ public class Check_Data {
             String last = testArray[1];
             String DOB = testArray[2];
             // tests for PHQ-9 in format, should be there
-            if (testArray[3].equals("PHQ-9")){
+            if (testArray[3].equals("phq-9")){
                 for (int i = 4; i < 4+9; i++) PHQ_total += Integer.parseInt(testArray[i]);
+                System.out.println("PHQ total: " + PHQ_total);
             }
             // tests for GAD-7 in format, should be there
-            if (testArray[13].equals("GAD-7")){
+            if (testArray[13].equals("gad-7")){
                 for (int i = 14; i < 14+7; i++) GAD_total += Integer.parseInt(testArray[i]);
             }
 
             // ISI TEST
-            if (testArray[21].equals("ISI")){
+            if (testArray[21].equals("isi")){
                 for (int i = 22; i < 22+7; i++) ISI_total += Integer.parseInt(testArray[i]);
             }
 
@@ -124,7 +129,7 @@ public class Check_Data {
                 }
             }
 
-            if (testArray[29].equals("ASRS")){
+            if (testArray[29].equals("asrs")){
                 for (int i = 30; i < 30+6; i++) ASRS_total += Integer.parseInt(testArray[i]);
                 if(ASRS_total >= 14){
                     ASRS_recommendation = "Patient is likely to have ADHD";
