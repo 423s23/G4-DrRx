@@ -45,7 +45,7 @@ public class Check_Data {
         //check all characters for valid alphabet
         for(int i = 0; i < dirty.length(); i++){
             char current_character = dirty.charAt(i);
-            int current_character_ascii = (int)current_character;
+            int current_character_ascii = current_character;
             if((current_character_ascii > 64 && current_character_ascii < 91) ||
                     (current_character_ascii > 96 && current_character_ascii < 123) || current_character_ascii == 45){
                 if(clean != null){
@@ -78,7 +78,7 @@ public class Check_Data {
 
             if(testArray[0] == "Patient not found"){
 
-                String result[] = new String[11];
+                String[] result = new String[11];
                 result[0] = ("<html><h1>Patient: Patient not found </h1></html>");
                 result[1] = ("<html>DOB: NA </html>");
                 result[2] = ("<html><h1>Columbia Total: NA </h1><p>Scale: 0-7</p></html>");
@@ -140,7 +140,7 @@ public class Check_Data {
             }
 
             // HTML tag added to fit all screen sizes
-            String result[] = new String[11];
+            String[] result = new String[11];
             result[0] = ("<html><h1>Patient: " + first + " " + last + "</h1></html>");
             result[1] = ("<html>DOB: " + DOB + "</html>");
             result[2] = ("<html><h1>Columbia Total: " + CSS_total + "</h1><p>Scale: 0-7</p></html>");
