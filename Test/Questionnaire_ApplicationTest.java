@@ -14,7 +14,7 @@ class Questionnaire_ApplicationTest {
             Scanner sc = new Scanner(new File("Project\\testData\\sampleinput.csv"));
             assertTrue(true);
         } catch (FileNotFoundException e) {
-            assertTrue(false);
+            fail();
         }
     }
 
@@ -30,8 +30,7 @@ class Questionnaire_ApplicationTest {
 
                 //Checking if Empty
                 for (int i=0;i<44;i++) {
-                    assertTrue(!current_line[i].isEmpty());
-                    assertTrue(!current_line[i].isBlank());
+                    assertFalse(current_line[i].isEmpty());
                 }
             }
 
@@ -58,15 +57,15 @@ class Questionnaire_ApplicationTest {
                 for (int i=3; i<44;i++){
                     //Check Test Titles
                     if (i == 3){
-                        assertTrue(current_line[i].equals("phq-9"));
+                        assertEquals("phq-9", current_line[i]);
                     } else if (i == 13) {
-                        assertTrue(current_line[i].equals("gad-7"));
+                        assertEquals("gad-7", current_line[i]);
                     } else if (i == 21) {
-                        assertTrue(current_line[i].equals("isi"));
+                        assertEquals("isi", current_line[i]);
                     } else if (i == 29) {
-                        assertTrue(current_line[i].equals("asrs"));
+                        assertEquals("asrs", current_line[i]);
                     } else if (i == 36) {
-                        assertTrue(current_line[i].equals("css"));
+                        assertEquals("css", current_line[i]);
                     } else {
                         //Check answers from tests
                         //Number 0-5
