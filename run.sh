@@ -1,4 +1,4 @@
 #!/bin/sh
  
-javaw.exe -jar PatientApplication.exe
+javaw.exe -jar executable.exe
 
