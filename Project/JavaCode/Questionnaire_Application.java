@@ -114,8 +114,8 @@ public class Questionnaire_Application {
         String patient_name_dirty = (search_bar.getText()).toLowerCase();
         String patient_name = Check_Data.Clean(patient_name_dirty);
 
-        String[][] allResults = null;
-        int counter = 1;
+        String[] result = null;
+        //int counter = 1;
         String line;
         File in = new File(("Project\\testData\\sampleinput.csv"));
         Scanner sc = null;
@@ -130,56 +130,16 @@ public class Questionnaire_Application {
             String[] current_line = (line.toLowerCase()).split(",");
 
             if (current_line[1].equals(patient_name)) {
-                if(allResults == null)
-                {
-                    allResults = new String[][]{current_line};
-                }
-                else
-                {
-                    String[][] tempArray = new String[allResults.length + 1][];
-                    System.arraycopy(allResults, 0, tempArray, 0, allResults.length);
-                    tempArray[counter] = current_line;
-                    allResults = tempArray;
-                    counter++;
-                }
+                result = Check_Data.main(line);
             }
         }
 
-        System.out.println(Arrays.deepToString(allResults));
-
-        if(allResults == null) {
-            allResults[0] = Check_Data.main("Patient not found");
+        if(result == null) {
+            result = Check_Data.main("Patient not found");
         }
+
         sc.close();
 
-        String[] result = null;
-
-        if(allResults.length > 1)
-        {
-            //Add Code that adds a drop-down to the search bar asking which person they meant.
-            //JComboBox
-            //Menu Items are Names
-            //Result = patient with same first name
-            result = allResults[0]; //delete this later
-        }
-        else
-        {
-            result = allResults[0];
-        }
-        String checkDataString = "";
-
-        //making a valid string for CheckData.main
-        for(int i = 0; i < allResults[0].length; i++)
-        {
-            checkDataString += result[i] + ",";
-        }
-        StringBuffer checkDataBuffer = new StringBuffer(checkDataString);
-        checkDataBuffer.deleteCharAt(checkDataBuffer.length() -1);
-        checkDataString = checkDataBuffer.toString();
-
-        System.out.println(checkDataString);
-
-        result = Check_Data.main(checkDataString);
         int iter_val = 0;
         for (JLabel label : labels) {
             label.setText(result[iter_val]);

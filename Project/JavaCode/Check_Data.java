@@ -76,10 +76,6 @@ public class Check_Data {
             String ASRS_recommendation = "";
             String[] testArray = line.split(",");
 
-            for (int temp = 0; temp < testArray.length-1; temp++){
-                System.out.println(testArray[temp]);
-            }
-
             if(testArray[0] == "Patient not found"){
 
                 String result[] = new String[11];
@@ -94,23 +90,28 @@ public class Check_Data {
                 result[8] = ("<html><h1>GAD-7 Total: NA </h1><p>Scale: 0-21</p></html>");
                 result[9] = ("<html>GAD/PHQ Results: NA </html>");
                 result[10] = ("<html><h1>PHQ-9 Total: NA </h1><p>Scale: 0-27</p></html>");
+
+
+                for (int temp = 0; temp < testArray.length-1; temp++){
+                    System.out.println(testArray[temp]);
+                }
+
                 return result;
             }
             String first = testArray[0];
             String last = testArray[1];
             String DOB = testArray[2];
             // tests for PHQ-9 in format, should be there
-            if (testArray[3].equals("phq-9")){
+            if (testArray[3].equals("PHQ-9")){
                 for (int i = 4; i < 4+9; i++) PHQ_total += Integer.parseInt(testArray[i]);
-                System.out.println("PHQ total: " + PHQ_total);
             }
             // tests for GAD-7 in format, should be there
-            if (testArray[13].equals("gad-7")){
+            if (testArray[13].equals("GAD-7")){
                 for (int i = 14; i < 14+7; i++) GAD_total += Integer.parseInt(testArray[i]);
             }
 
             // ISI TEST
-            if (testArray[21].equals("isi")){
+            if (testArray[21].equals("ISI")){
                 for (int i = 22; i < 22+7; i++) ISI_total += Integer.parseInt(testArray[i]);
             }
 
@@ -129,7 +130,7 @@ public class Check_Data {
                 }
             }
 
-            if (testArray[29].equals("asrs")){
+            if (testArray[29].equals("ASRS")){
                 for (int i = 30; i < 30+6; i++) ASRS_total += Integer.parseInt(testArray[i]);
                 if(ASRS_total >= 14){
                     ASRS_recommendation = "Patient is likely to have ADHD";
