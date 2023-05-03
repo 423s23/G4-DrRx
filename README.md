@@ -38,7 +38,7 @@ In this tab, if your issue does not have an open issue ticket, click the 'New' b
 When you are ready to post your issue, scroll down to the bottom of the page and click the 'Submit new Issue' button.
 
 ## Documentation for Developers
-### Obtain the Source Code 
+### Obtaining the Source Code 
 The source code for the latest version of the software can be obtained by downloading the JavaCode folder within Project folder, in its entirety.
 
 ### File Locations
@@ -46,11 +46,14 @@ For this project, all source code can be found under the Project/JavaCode direct
 Executable files can be found on the top level of the repository.
 Documentation, artifacts and version history can be found under the Tracking directory.
 
-### Build Instructions
-* No extra build instructions are currently associated with this software, but may be included at a later date.
+### Updating Test Data
+The test data .CSV file can be found under Project > testData > sampleinput.csv. Each line in the file represents an individual patient, and data is formatted the following way:
+FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#,#,#,ASRS,#,#,#,#,#,#,CSS,#,#,#,#,#,#,#
+With each # pertaining to a patient’s numeric answer for a screening question. I.e.: PHQ-9,2,3,1,2,3,1,0,1,1 indicates that a patient answered 2 for question 1 of the PHQ-9 screening, 3 for question 2, 1 for question 3 and so on. DOB should be formatted as month_day_year (i.e. 1_01_2000.)
 
-### Test Suite
-* Currently, no test suite is available for this software. Testing must be done manually by running the source code.
+
+### Build Instructions
+* No extra build instructions are currently associated with this software.
 
 ### Unit Testing
 * The Test Suite from above is referencing the source code Unit Testing that can be found in the 'Test' folder on the top level of the repository.
@@ -59,7 +62,7 @@ Documentation, artifacts and version history can be found under the Tracking dir
 * When a new version of the software is created, documentation and artifacts will be updated and the executable file will be updated to run the most recent version of the software.
 
 ### Bugs
-* All bugs, bug resolutions and pending features will be tracked in the GitHub issues tab.
+* All bugs/issues are tracked and archived under the Issues tab on the Github repository. Known issues are considered prioritized over new features.
 
 ## Layout
 
