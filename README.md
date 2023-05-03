@@ -49,7 +49,7 @@ Documentation, artifacts and version history can be found under the Tracking dir
 ### Updating Test Data
 The test data .CSV file can be found under Project > testData > sampleinput.csv. Each line in the file represents an individual patient, and data is formatted the following way:
 FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#,#,#,ASRS,#,#,#,#,#,#,CSS,#,#,#,#,#,#,#
-With each # pertaining to a patient’s numeric answer for a screening question. I.e.: PHQ-9,2,3,1,2,3,1,0,1,1 indicates that a patient answered 2 for question 1 of the PHQ-9 screening, 3 for question 2, 1 for question 3 and so on. DOB should be formatted as month_day_year (i.e. 1_01_2000.)
+With each # pertaining to a patient’s numeric answer for a screening question. I.e.: PHQ-9,2,3,1,2,3,1,0,1,1 indicates that a patient answered 2 for question 1 of the PHQ-9 screening, 3 for question 2, 1 for question 3 and so on. DOB should be formatted as month_day_year (i.e. 1_1_2000.)
 
 
 ### Build Instructions
