@@ -4,18 +4,18 @@ This is a repository for the 2023 ESOF423 Project working on the problem establi
 
 ## Documentation for Users
 ### Description of the Project
-This is a Feature Complete Release of the DrRx software. It is able to complete a search query for a patient's information, open a separate window to display that information, and provide results from the most recent test data from the patient's survey results.
+This is a Final Release of the DrRx software. It is able to complete a search query for a patient's information, open a separate window to display that information, and provide results from the most recent test data from the patient's survey results.
 
 ### To Obtain and Install the Software
-On the main page of the repository, download all files into one folder onto our computer. A fast and easy way to do this will be clicking the green '<> Code' button, and downloading the zip file from that dropdown menu. Inside the zip folder will be a folder that is named 'G4-DrRx-main'. That folder can be placed anywhere. Ensure that the files PatientApplication(CLICKME!).lnk and run.sh are in the top level of the file system. This means that when the folder is opened, the two files can be seen without going into any more folders. The DrRx software is now installed.
+On the main page of the repository, download all files into one folder onto our computer. A fast and easy way to do this will be clicking the green '<> Code' button, and downloading the zip file from that dropdown menu. Inside the zip folder will be a folder that is named 'G4-DrRx-main'. That folder can be placed anywhere, but perferably the desktop for easy access. Inside the G4-DrRx-main folder (not the zipped one), there is a file called run.sh. If you right click that file, you can create a shortcut. You can place this shortcut anywhere you wish and it will run the Dr.Rx software. The software is now installed.
 
 ### To Run the Software
-Find the folder on your desktop where the files are located. Double click on the PatientApplication(CLICKME!).lnk file from the previous step. The Patient Search Window is displayed and the application is now running. 
+The run.sh shortcut you created in the last section, double click to open the application. The Patient Search Window is displayed and the application is now running. 
 
 ### To Use the Software
 With the DrRx application running, the Patient Search Window is displayed. Patients can be searched by LAST NAME ONLY. A set of data has been provided and can be accessed by searching for 'Bob', 'Wagner', or 'Smith'. Searching these names will provide a new window of patient information. To search another name, click the 'Back' button at the bottom of the screen or simply close the Patient Information Window. 
 
-To add more patients into the current system, open the sampleinput.csv file by opening the 'G4-DrRx-main' file, then opening the Project file, opening the testData file, and double clicking on the sampleinput.csv file. You will see each patient is a separate line. To add a patient into the system, follow this exact format documented here and shown in the provided patients:
+To add more patients into the current system, open the sampleinput.csv file by opening the 'G4-DrRx-main' file, then opening the Project file, opening the testData file, and double clicking on the sampleinput.csv file. You will see each patient is a separate line. Each # pertains to a patient’s numeric answer for a screening question. I.e.: PHQ-9,2,3,1,2,3,1,0,1,1 indicates that a patient answered 2 for question 1 of the PHQ-9 screening, 3 for question 2, 1 for question 3 and so on. To add a patient into the system, follow this exact format documented here and shown in the provided patients:
 
 FirstName,LastName,DOB,PHQ-9,#,#,#,#,#,#,#,#,#,GAD-7,#,#,#,#,#,#,#,ISI,#,#,#,#,#,#,#,ASRS,#,#,#,#,#,#,CSS,#,#,#,#,#,#,#
 
@@ -56,7 +56,7 @@ With each # pertaining to a patient’s numeric answer for a screening question.
 * No extra build instructions are currently associated with this software.
 
 ### Unit Testing
-* The Test Suite from above is referencing the source code Unit Testing that can be found in the 'Test' folder on the top level of the repository.
+* The Test Suite is the source code Unit Testing that can be found in the 'Test' folder on the top level of the repository.
 
 ### Versions
 * When a new version of the software is created, documentation and artifacts will be updated and the executable file will be updated to run the most recent version of the software.
