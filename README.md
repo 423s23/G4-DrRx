@@ -69,6 +69,6 @@ With each # pertaining to a patient’s numeric answer for a screening question.
 This displays how to find specific files in the repository:
 
   * `/Project` All of the code *(Java, etc.)*
-  * `/Tracking` Backlogs and burndown charts *(Along with their history)*
+  * `/Tracking` Project Portfolio, PowerPoint Presentation, Backlogs and burndown charts *(Along with their history)*
   * `Artifacts.md` Displayed artifacts
   
